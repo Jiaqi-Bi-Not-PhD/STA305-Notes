@@ -1,0 +1,438 @@
+\documentclass[a4paper,11pt]{article}
+
+\setlength{\oddsidemargin}{0 in}
+\setlength{\evensidemargin}{0 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{yfonts}
+\usepackage{ dsfont }
+\usepackage{soul}
+\usepackage{ulem,xpatch}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage[
+    type={CC},
+    modifier={by-nc-nd},
+    version={4.0},
+]{doclicense}
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains}
+\usepackage{graphicx}
+
+
+\newcommand{\soutthick}[1]{%
+    \renewcommand{\ULthickness}{2.4pt}%
+       \sout{#1}%
+    \renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
+}
+
+
+
+
+\title{\textbf{STA305 Desgin and Analysis of Experiments Lecture Notes (2021 Summer)}}
+
+\author{Jiaqi Bi, University of Toronto}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{ex}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{rmk}[thm]{Remark}
+
+\newcommand{\ie}{\emph{i.e.} }
+\newcommand{\cf}{\emph{cf.} }
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\dirac}{\slashed{\partial}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\LieT}{\mathfrak{t}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\A}{\mathds{A}}
+
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+
+\begin{document}
+% Define block styles
+\tikzset{
+decision/.style={
+    diamond,
+    draw,
+    text width=4em,
+    text badly centered,
+    inner sep=0pt
+},
+block/.style={
+    rectangle,
+    draw,
+    text width=10em,
+    text centered,
+    rounded corners
+},
+cloud/.style={
+    draw,
+    ellipse,
+    minimum height=2em
+},
+descr/.style={
+    fill=white,
+    inner sep=2.5pt
+},
+connector/.style={
+    -latex,
+    font=\scriptsize
+},
+rectangle connector/.style={
+    connector,
+    to path={(\tikztostart) -- ++(#1,0pt) \tikztonodes |- (\tikztotarget) },
+    pos=0.5
+},
+rectangle connector/.default=-2cm,
+straight connector/.style={
+    connector,
+    to path=--(\tikztotarget) \tikztonodes
+}
+}
+
+\setstretch{1.1}
+\begin{titlepage}
+\end{titlepage}
+
+\maketitle
+
+\newpage
+
+\begin{Large}
+\noindent \textbf{Preface}
+\end{Large}
+
+\vspace{6pt}
+
+\noindent This typesetting note is intended for academic communication and not-for-profit knowledge sharing. Any institutions or individuals \textbf{SHOULD NOT} reproduce or use this note in any form for operational or commercial purposes. This note contains some of the lecture notes instructed by Prof. Ramya Thinniyam and personal research notes. The author holds the right of the prosecution for any above behaviors. Moreover, this note should not be used as a substitution for the current user's attending lecture or textbook. I strongly recommend the user combine the note with your textbook and lecture to understand the content thoroughly. I hope anyone using this note can have a better understanding of the Elementary Number Theory topic. Students using this copy should not conduct any academic infractions, including but not limited to reproducing, failure of citations, and using this copy in any forms of academic dishonesty mentioned by the University of Toronto. For specific details of academic integrity, please visit https://www.academicintegrity.utoronto.ca/. 
+
+\doclicenseThis
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Lec 1 Introduction to Experiments and Types of Data}
+\subsection{General Outline of an Experiment}
+\begin{itemize}
+\item An experiment is used to prove a scientific claim
+\item Simplest Setup: 2 groups
+\begin{itemize}
+\item Apply a different Treatment to each group, i.e. Treatment and Control
+\item Measure a variable of interest, i.e. Response
+\end{itemize}
+\item Ideal situation: the groups are identical in every possible way, except for the treatment
+\item If the groups differ in the response, it must be due to the treatment variable. 
+\end{itemize}
+A flowchart that generally explain this: 
+
+\begin{tikzpicture}
+\matrix (m)[matrix of nodes, column  sep=4mm,row  sep=10mm, align=center, nodes={rectangle,draw, anchor=center} ]{
+ &   |[block]| {2 Groups}              &  \\
+    |[block]| {Treatment }               &    &    |[block]|{Control}                                   \\
+    |[block]| {Response 1}          &     &      |[block]|{Response 2}                                  \\
+  &  |[block]| {Responses defer due to the treatment variable}    &                                              \\
+};
+\path [>=latex,->] (m-1-2) edge (m-2-1);
+\path [>=latex,->] (m-1-2) edge (m-2-3);
+\path [>=latex,->] (m-2-1) edge (m-3-1);
+\path [>=latex,->] (m-2-3) edge (m-3-3);
+\path [>=latex,->] (m-3-1) edge (m-4-2);
+\path [>=latex,->] (m-3-3) edge (m-4-2);
+
+
+
+\end{tikzpicture}
+
+Example of different treatments: Medicine \& Placebo
+\begin{eg}
+\normalfont
+A research team wants to test their effect of a new medicine on the Migraine. They have the \colorbox{pink}{treatment group} of New Pill, and they have the \colorbox{pink}{control group} of Placebo. Then they will test migraine sufferers. The \colorbox{pink}{response} will be the pain level from 1 to 10 subjectively measured by patients themselves. The duration will be 2 hours after taking the pill. In this experiment, the \colorbox{pink}{nuisance variables} are: Age, Sleep hours, Diet, Severity of migraines... \colorbox{pink}{The treatment has two levels}: pill and placebo
+\end{eg}
+\newpage
+\subsection{Steps of an Experimental Design}
+\textbf{This would be useful for Final Project}
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"Pic 1".JPG}
+\end{center}
+
+\subsection{Definitions used in Statistical Inference}
+\begin{itemize}
+\item Population: Set of units that we are interested in studying. E.g. Group of people, objects...
+\item Experimental Unit: The person or object on which the treatment is applied. Also called "case" or "Element" or "Subject" (When human unit). 
+\item Sample: Subset of the population.
+\item Variable: A measured characteristic of a population unit. E.g., Age, weight, pain scale... 
+\item Statistical Inference: Estimate, prediction, or generalization about population based information from a sample. 
+\end{itemize}
+
+\subsection{Experimental Study vs. Observational Study}
+Note this course we mainly focus on the experimental study. If you are interested in observational study you are recommended to take STA304. 
+
+\textbf{Experimental Study}
+\begin{itemize}
+\item To assess the effect of a certain treatment or condition
+\item First randomly assign subjects to treatment, then control the rest. Randomization is important. Experimental data comes from experiments, so there are eligible reasons to conclude \colorbox{pink}{causation}. 
+\item Common in scientific and psychological research
+\item \colorbox{pink}{Between Subjects Design}: Each experimental unit is assigned only one treatment
+\item \colorbox{pink}{Within Subjects Design}: Each experimental unit is given all treatments
+\end{itemize}
+\textbf{Observational Study}
+\begin{itemize}
+\item No randomization or controlling
+\item Data is collected as it comes (survey data), results from observational studies. 
+\item Causation cannot be concluded from observational data since there may be other "confounding/lurking variables" (that were not controlled for) that is causing the relationship. 
+\item Common in data mining, economic, and sociological research... 
+\end{itemize}
+Note that an experiment may be hard to conduct due to ethical reasons, costs... 
+\subsection{Types of Variables}
+There are two types of variables, which are $X$ and $Y$ such that $Y$ denotes the response, that is measured by the researcher, and influenced by other variables. $X$ is known as predictor or explanatory variable that affect the response variable, which is manipulated by researchers. 
+
+Variables can be:
+\begin{itemize}
+\item Quantitative: A variable is quantitative if it takes on numerical values for which arithmetic operations make sense. Ex: Height, marks, incomes... This type of variables can be discrete or continuous. 
+\item Discrete: Variable can take on any one of a finite or countable list of values ($\Z$) (there are gaps in the possible values). Ex: Number of heads in 10 tosses of a coin. 
+\item Continuous: Variable can take on any value possible in an interval (uncountable). Ex: Time to complete a marathon... (There are infinitely many numbers in $\R$)
+\item Qualitative/Categorical variable: Categories, cannot be measured on numerical scales. Ex: Gender, smoking status (No, Used to, Yes)... 
+\end{itemize}
+
+Variables can be measured as either qualitative or quantitative and further categorized as follows:
+
+\textbf{Categorical:}
+\begin{enumerate}
+\item Nominal: Categorize units into distinct classes. 
+\begin{itemize}
+\item Unordered categories
+\item Numerical computations are not applicable
+\item Ex: Gender, POSt, Favorite colors...
+\item When controlled by researcher, called \colorbox{pink}{Factor}
+\end{itemize}
+\item Ordinal: Ordered categories without natural units/distance metric
+\begin{itemize}
+\item Natural ordering to the categories; not just the names of the categories differ
+\item Professional rank, grades, satisfications... 
+\end{itemize}
+\end{enumerate}
+\textbf{Quantitative:}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Interval: Numerical measurements which allow for degree of difference between values. 
+\begin{itemize}
+\item Distance is consistent but ratios are meaningless
+\item Does not have a true 0 measure (0 is arbitrary)
+\item Ex: Temperature ($^{\circ}$C), dates...
+\end{itemize}
+\item Ratio: Numerical measurements on which a unique and non-arbitrary zero value exists
+\begin{itemize}
+\item Ratios are meaningful, sensible to carry our multiplication/division
+\item Ex: Temperature (K), length, time duration...
+\end{itemize}
+\end{enumerate}
+
+When an experiment has controls, call $X$ a \colorbox{pink}{factor} and its categories the \colorbox{pink}{factor levels}. Single-Factor Experiment has one factor with levels $\{a_1, a_2, a_3,...\}$. Two-Factor Experiment has Two Factors (Factor A and B) with their own levels. A \colorbox{pink}{treatment} is a combination of factor levels. 
+\newpage
+\begin{eg}
+\normalfont
+Example of Effects of Putting Sugar in Coffee
+
+	\includegraphics[width=1\textwidth]{"Pic 2".JPG}
+
+\begin{enumerate}
+\item For the above study, identify the following: 
+\begin{itemize}
+\item Population- \textcolor{red}{All coffee drinkers}
+\item Experimental unit- \textcolor{red}{A human participant}
+\item Variables (Which is response/predictor, quantitative/qualitative?)- \textcolor{red}{$X$: Drink with sugar or not, $Y$: Respiratory gas exchange and their pulse (Quantitative)}
+\item Sample- \textcolor{red}{12 participants}
+\item A possible Statistical Inference- \textcolor{red}{Generalization on effects of drinking coffee with sugar}
+\end{itemize}
+\item Is the study observational or \colorbox{green}{experimental}? Justify. \textcolor{red}{The data were collected by an experiment, it has controls of giving specific amount of coffee and sugar. It is a within subjects design. Treatments are assigned.}
+\item What are the factors and levels? Describe the treatments and how many there are? \textcolor{red}{Factor: Type of drink. Factor Levels (3 levels/treatments): Coffee, Coffee with sugar, sugar only) (categorical)}
+\item Name a confounding variable that could be present in this study. \textcolor{red}{The order of treatments applied}
+\end{enumerate}
+\end{eg}
+
+\begin{eg}
+\normalfont
+\textbf{Effects of Teaching Style}
+Suppose you wish to conduct an experiment to see if teaching style (lecturer, facilitator, online technology) and the amount of lecture time (2 hours, 3 hours/week) affects the learning outcome of students in a large university course. 
+
+\begin{enumerate}
+\item What are the factors and levels? \textcolor{red}{Teaching styles (Lecture, Facilitator, Online Tech); The amount of lecture time (2 hours, 3 hours)}
+\item Treatments? \textcolor{red}{(Lecture \& 2 hours, Lecture \& 3 hours, Facilitator \& 2 hours, Facilitator \& 3 hours, Tech \& 2 hours, Tech \& 3 hours) Total 6 treatments}
+\end{enumerate}
+\end{eg}
+
+\subsection{Crossed vs. Nested Factors}
+When \colorbox{pink}{all combinations} of factors are possible, the experiment is said to be fully \colorbox{pink}{crossed}. Easier to analyze. 
+
+When each level of one factor occurs with a unique set of levels of the other factor, the design is called \colorbox{pink}{nested}. Hierarchical Design. 
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"Pic 3".JPG}
+\end{center}
+
+\subsection{Nuisance Variables}
+Variables other than the treatment condition that influence the response variable. 
+
+Ex: Teaching Styles: 
+\begin{itemize}
+\item Different lecturers for each section
+\item Age of students
+\item Time of day for lecture section, etc...
+\end{itemize}
+
+We use \colorbox{pink}{Control, Blocking, Randomization, Replication} to deal with nuisance variables. 
+
+\textbf{Control}: Keep the nuisance variable constant throughout all treatment conditions (no longer a variable)
+
+Ex: Teaching Styles: Same lecturer for each style; Same/Similar lecture times for each style...
+
+\textbf{Blocking}: If the nuisance variable cannot be controlled, but can be observed, use Blocking to ensure each treatment has an equal amount of the variable. 
+
+Ex: Assign students to styles so each style has same age distribution. 
+\begin{center}
+	\includegraphics[width=1\textwidth]{"Pic 4".JPG}
+\end{center}
+
+\textbf{Randomization}: If the nuisance variable cannot be controlled or observed, use Randomization to spread out the variables and reduce the chance of confounding. 
+
+Ex: Teaching Styles: After blocking, randomly assign students to styles/sections. 
+
+\textbf{Replication}: Should not conduct the experiment with only one observation in each treatment. The resulting effect may be due to the experimental unit, and not the treatment. Cannot estimate variance within a specific treatment if it has only one observation. Use of replicates allows us to estimate \colorbox{pink}{experimental error}, which is used to determine if we have statistically significant results. 
+
+Replication can occur at two different levels: 
+\begin{itemize}
+\item \textbf{Treatment Level}: We take more than one observation in each treatment. 
+\item \textbf{Experiment Level}: We wish to replicate the entire experiment to ensure results were not due other features inherent in the experiment, and so we can generalize to other populations. 
+\end{itemize}
+
+Ex: Teaching Styles: Many students with similar characteristics (treatments) in each class; Another university could replicate the study.
+
+\subsection{Confounding}
+Nuisance variables that are systematically related to the treatments. Confounding variables can alter the effect of treatments even if non-systematic relationship to treatments, accidental effects can increase variability of responses and mask treatment effects. 
+
+Ex: Teaching Styles: Certain styles may be taught at different times of the day. For example, tech section always taught in night and lecture style during day. Differences cannot be uniquely credited to lecture styles. 
+
+Randomization decreases the chance that factors not accounted for in the design of the experiment will be confounded with the treatments. 
+
+\subsection{Blinding}
+We use this when participants may be influenced once they know their treatment. \textbf{Placebo}. 
+
+\textbf{Double blind}: Both subjects and researcher are unaware of treatment assignment. 
+
+\subsection{Balance}
+Assign the same number of experimental units to each treatment, call it \colorbox{pink}{Balanced Design}. Balanced and unbalanced designs dealt with differently (calculations, etc...). Balanced design can become unbalanced easily- missing data, destroyed measurements, etc...
+
+\newpage
+
+\section{Lec 2 Review of Hypothesis Testing and One-Way ANOVA with 2 Levels}
+\subsection{Single Factor Analysis with 2 levels}
+\begin{itemize}
+\item 1 Factor with 2 levels (2 different treatments, treatment/control, etc. )
+\item 2 treatments in total
+\item Want to determine if there is a ``treatment effect" (if response varies by treatment)
+\item Test for differences in means of the 2 populations: sample means are not enough; account for variability within each treatment group
+\end{itemize}
+
+\subsection{Review of Hypothesis Testing}
+\begin{defn}
+\normalfont
+A Hypothesis Test is a formal statistical test that is performed to decide whether a statement about a set of parameter(s) is reasonable (to make an inference about the value of a parameter and how it relates to a specified/hypothesized numerical value). 
+\end{defn}
+\textbf{Elements of a Hypothesis Test}
+\begin{enumerate}
+\item $H_0$ is Null Hypothesis and $H_a$ is Alternative Hypothesis. 
+\item Test Statistic: A statistic (function of the data) that involves the parameter value and has a known distribution under $H_0$.
+\item Distribution under $H_0$: Distribution of test statistic assuming that $H_0$ is true
+\item P-value: Probability of observing a test statistic as or more extreme (more contradictory to $H_0$ i.e. favorable to $H_a$) than already observed if the null hypothesis is true. Gives a measure of strength of evidence against $H_0$. Small P-value, test statistic value is unlikely if $H_0$ is true (contradiction). Large p-value, test statistic value is likely if $H_0$ is true (No contradiction)
+\item Conclusion: Reject $H_0$ (and favour $H_a$) or Fail to Reject $H_0$. This leads to a practical conclusion about the population(s)/parameter value(s). When $H_0$ is rejected, we say the test is \colorbox{pink}{statistically significant}, or there is a \colorbox{pink}{statistically significant difference}. 
+\end{enumerate}
+\subsection{Review: Two Sample T-Tests}
+\begin{defn}
+\normalfont
+Interested in comparing two population means when we have small sample sizes. Suppose we have $X_1,...,X_{n1}$ a random sample from population 1 and $Y_1,...,Y_{n2}$ a random sample from population 2. 
+
+$H_0$ is $\mu_1-\mu_2=D_0$, note that this $D_0$ is usually 0 but not always (When treatment means are equal). We have $H_a:\mu_1-\mu_2\neq D_0$ OR $\underbrace{Ha: \mu_1-\mu_2<D_0 \text{ OR } H_a:\mu_1-\mu_2>D_0}_\text{One-tail test}$
+
+\textbf{Assumptions}: 
+\begin{enumerate}
+\item Two samples are $iid$ from Normal populations
+\item Two samples are independent from each other
+\end{enumerate}
+\end{defn}
+The test statistic is
+$$t=\frac{(\bar{x}-\bar{y})-D_0}{se(\bar{x}-\bar{y})}$$
+where $se$ is the standard error: estimated standard deviation. 
+\subsection{Pooled T-Test}
+\begin{defn}
+\normalfont
+Applicable when population variances can be assumed to be equal. I.e. Population 1: $X_1,...,X_{n1}\stackrel{iid}{\sim}N(\mu_1, \sigma_1^2)$ and Population 2: $Y_1,...,Y_{n2}\stackrel{iid}{\sim}N(\mu_2,\sigma_2^2)$ such that $\sigma_1=\sigma_2$. 
+
+\textbf{Assumptions}:
+\begin{enumerate}
+\item Two samples are random samples from the target populations and the samples are independent from each other. 
+\item The populations have equal standard deviations ($\sigma_1=\sigma_2$)
+\item Two samples are (approximately) Normal
+\end{enumerate}
+If we can assume that the variances are equal, we use the \colorbox{pink}{pooled estimate of the variance}: 
+$$s_p^2=\frac{\overbrace{(n_1-1)}^\text{df of $s_1^2$}s_1^2+\overbrace{(n_2-1)}^\text{df of $s_2^2$}s_2^2}{\underbrace{n_1+n_2-2}_\text{total df}}$$
+
+\textbf{Hypothesis for Pooled T-Tests}: 
+
+$H_0:\mu_1-\mu_2=D_0$ vs. 
+\begin{enumerate}
+\item $H_a:\mu_1-\mu_2\neq D_0$ OR
+\item $H_a:\mu_1-\mu_2<D_0$ OR
+\item $H_a:\mu_1-\mu_2>D_0$. 
+\end{enumerate}
+
+\textbf{Test Statistic for Pooled T-Tests}:
+
+$$t=\frac{(\bar{x}-\bar{y})-D_0}{\sqrt{s_p^2(\frac{1}{n_1}+\frac{1}{n_2})}}\sim t_{n_1+n_2-2}\text{ under }H_0$$
+
+\begin{enumerate}
+\item $p=2P(t_{n_1+n_2-2}>|t|)$ OR
+\item $p=P(t_{n_1+n_2-2}<t)$ OR
+\item $p=P(t_{n_1+n_2-2}>t)$
+\end{enumerate}
+
+Conclusion: Reject $H_0$ is $p<\alpha$ and failed to reject otherwise. 
+\end{defn}
+
+
+
+\end{document}
+
+
+
