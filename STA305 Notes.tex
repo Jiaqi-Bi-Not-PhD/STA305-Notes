@@ -495,6 +495,218 @@ Since $p<0.05$, we reject $H_0$. Strong evidence to conclude that Auranofin ther
 Using R, we can get the exact p-value that the 2 sided $p=0.0087$, so the exact p value will be $p=P(t_{291}>2.64)=\frac{0.0087}{2}=0.00435$. The conclusion still holds. 
 \end{eg}
 
+\subsection{Analysis of Variance (ANOVA)}
+\begin{defn}
+\normalfont
+Analysis of Variance (ANOVA) is a collection of statistical models and procedures for comparing factor level means in a factor. We wish to test if there is a statistically significant difference between the factor level/group means.
+\end{defn}
+One-Way ANOVA: One factor; Two-Way ANOVA: Two factors, etc.
+
+It's called "Analysis of Variance" because we compare the \textbf{within-group} variance to the \textbf{between-group} variance. 
+
+\textbf{Main Idea}: If the variation between groups is significantly bigger than the variation within groups, there is a statistically significant difference in the group means. 
+
+Note: An ANOVA is equivalent to using a linear regression model with categorical predictors (with indicator variables).
+
+\subsection{Recall: Multiple Linear Regression}
+$$Y_i=\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}...+\beta_{p-1}X_{p-1,i}+\epsilon_i\text{ for }i=1,2,...,n$$
+where
+\begin{itemize}
+\item $Y_i$: Response for the $i$th case (Quantitative variable)
+\item $X_{1,i}...$: Predictors for $i$th case (Quantitative or categorical)
+\item $\epsilon_i$: Error term for the $i$th case, where $\epsilon_i\stackrel{iid}{\sim}N(0, \sigma^2)$
+\item $\beta_0, \beta_1, ..., \beta_{p-1}$: Regression coefficients/parameters, $\beta_0$: Intercept
+\item $n$: Number of cases/sample size
+\end{itemize}
+
+Matrix form: $Y=X\beta+\epsilon$; where
+\begin{itemize}
+\item $Y$ is an $(n\times 1)$ vector
+\item $X$ is $(n\times p)$ matrix, each column contains values for each predictor. If model uses intercept, first column of $X$ is all $1$s. 
+\item $\beta$ is a $(p\times 1)$ vector of regression coefficients
+\item $\epsilon$ is a $(n\times 1)$ vector of error terms
+\end{itemize}
+\begin{eg}
+$y=\begin{pmatrix}
+y_1\\
+\vdots\\
+y_n
+\end{pmatrix}$, 
+$X=\begin{pmatrix}
+1 & x_{11} & x_{21} & ... & x_{p-1\ 1}\\
+1 & x_{12} & x_{22} & ... & x_{p-1\ 2}\\
+\vdots & \vdots & \vdots & \vdots & \vdots\\
+1 & x_{1n} & x_{2n} & ... & x_{p-1\ n}
+\end{pmatrix}$, 
+$\beta=\begin{pmatrix}
+\beta_0\\
+\vdots\\
+\beta_{p-1}
+\end{pmatrix}$, 
+$\epsilon=\begin{pmatrix}
+\epsilon_1\\
+\vdots\\
+\epsilon_n
+\end{pmatrix}$
+\end{eg}
+\subsection{Indicator Variables}
+\begin{defn}
+\normalfont
+A factor has $a$ levels, when using a model with intercept, use only $(a-1)$ indicators. The level without an indicator is the default or reference level. For $k=1,2,...,a-1$
+$$
+I_{k,i}=
+\begin{cases}
+1, \text{\ if $i$th case belongs in factor level $k$}\\
+0, \text{\ otherwise}
+\end{cases}
+$$
+\end{defn}
+\begin{eg}
+\normalfont
+\textbf{Linear Regression Model for Arthritis Example}
+$$Y_i=\beta_0+\beta_1I_{A,i}+\epsilon_i\text{ for } i=1,2,...,n$$
+where $Y_i=$ difference in pain after 6 months for $i$th patient. 
+$$
+E(Y_i)=
+\begin{cases}
+\beta_0+\beta_1, \text{\ if $i$th patient received Auranofin (1)}\\
+\beta_0, \text{\ if $i$th patient received placebo (0)}
+\end{cases}
+$$
+
+Therefore, \colorbox{pink}{$\beta_0$ is the mean difference in pain for placebo group}, \colorbox{pink}{$\beta_1$ is the difference in the mean} \colorbox{pink}{difference of pain (response) between Auranofin and Placebo groups. }
+
+$\beta_1=0$: No difference
+
+$\beta_1>0$: Mean in Auranofin group $>$ Placebo Group
+
+$\beta_1<0$: Mean in Auranofin Group $<$ Placebo Group
+\end{eg}
+
+\subsection{One-Way ANOVA with 2 levels}
+When there are 2 factor levels (comparing 2 means like in Arthritis Example), use t-test to test if $\beta_1=0$. Alternatively, use F-Test: Can be used to compare \colorbox{pink}{many} factor level means. T-Test using linear regression is \colorbox{pink}{equivalent} to F-Test using ANOVA when comparing 2 means. $t^2=F$. 
+\newpage
+\begin{eg}
+\normalfont
+Example of Arthritis Clinical Study- Linear Regression Model
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 9".JPG}
+\end{center}
+
+\end{eg}
+
+Hand Calculation: 
+
+We have $H_0=\beta_1=0$, $H_a=\beta_1>0$, according to R output we have $t=2.64\sim t_{291}$ under $H_0$. 
+
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{"pic 10".JPG}
+\end{center}
+
+$p=P(t_{291}>2.64)=\frac{0.00871}{2}\doteq 0.0044<0.05$. So, we have strong evidence to conclude that the Auranofin is effective in reducing pain. 
+
+\subsection{Variation and Sum of Squares}
+When we apply a treatment, we consider a possible treatment effect. In the two sample case, it is the difference between two groups in the population, i.e., $\mu_1-\mu_2$. This difference may not be due to the treatment effect alone, but experimental error as well. 
+
+Generally, 
+
+$H_0: \mu_1=\mu_2=...=\mu_a$ (No difference in group means, $a$ groups in total)
+
+$H_a: \mu_i\neq \mu_j$ for at least one $i\neq j$ where $i,j=1,2,...,a$ (Difference in group means)
+
+$$X=\frac{\text{variation between groups}}{\text{variation between subjects, within groups}}$$
+If $X>1$, then more evidence we have a difference in group means (more significant). 
+
+\subsection{One-Way ANOVA Notation}
+\begin{itemize}
+\item One factor, Factor A with $a$ levels
+\item $j$ denotes the group/level and $i$ denotes the position of the subject within that level/group ($j=1,...,a$; $i=1,...,n_j$)
+\item $y_{ij}$ denotes the $i$th observation from the $j$th group ($i$ is the index, $j$ is the group/level)
+\item $n_j$ is the number of subjects in the $j$th group
+\item \colorbox{pink}{$N=\sum_{j=1}^an_j$ is the total sample size}
+\item $\bar{Y}_T$ is the grand sample mean regardless of group
+\item $\bar{y}_j$ is the sample mean in the $j$th group
+\end{itemize}
+
+\begin{defn}
+\normalfont
+\textbf{Total Sum of Squares}
+
+SST measures the \colorbox{pink}{total sample variability} (total deviation from the grand mean):
+$$SST=\underbrace{\sum_{j=1}^a\sum_{i=1}^{n_j}}_{\text{All observations}}(y_{ij}-\bar{y}_T)^2$$
+\begin{itemize}
+\item $(N-1)$ df
+\item $SST=SSReg+SSE$
+\end{itemize}
+
+\end{defn}
+
+\begin{defn}
+\normalfont
+\textbf{Sum of Squares for A}
+
+Sum of Squares for Factor A (SSA) measures the variability of the factor level means: 
+$$SSA=\sum_{j=1}^a\sum_{i=1}^{n_j}(\hat{y}_{ij}-\bar{y}_T)^2=\sum_{j=1}^an_j(\bar{y}_j-\bar{y}_T)^2$$
+Note that $\hat{y}_{ij}$ is the estimated observation, $\bar{y}_T$ is the grand sample mean. It has $(a-1)$ df, df=number of parameters in the model -1. It's normally called $SSA$ or $SSReg$. 
+
+\end{defn}
+
+\begin{defn}
+\normalfont
+\textbf{Residual/Error Sum of Squares}
+
+SSE measures the variability that is left unexplained by the model: 
+$$SSE=\sum_{j=1}^a\sum_{i=1}^{n_j}(y_{ij}-\hat{y}_{ij})^2=\sum_{j=1}^a\sum_{i=1}^{n_j}(y_{ij}-\bar{y}_j)^2$$
+Note that it has $(N-a)$ df, df=number of data - number of parameters in the model. SSE decreases as more predictors are added to the model. We want SSE to be low! 
+\end{defn}
+
+\subsection{One-Way ANOVA Table}
+Note that SS refers to Sum of Squares, MS refers to Mean Square = $\frac{SS}{df}$
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{ANOVA Table} \\
+ \hline
+ Source & df &SS&MS\\
+ \hline
+ Group/Regression   & $a-1$    &$SSA$&   $\frac{SSA}{a-1}=MSA$\\
+ Error &   $N-a$  & $SSE$   & $\frac{SSE}{N-a}=MSE$\\
+ \hline
+ Total &$N-1$ & $SST$ &  \\
+ \hline
+\end{tabular}
+\end{center}
+\vspace{18pt}
+
+$$MSE=\frac{\sum_{j=1}^a\sum_{i=1}^{n_j}(y_{ij}-\bar{y}_j)^2}{N-a}=\frac{\sum_{j=1}^a(n_j-1)s_j^2}{N-a}=s_{\text{pooled}}^2$$
+
+$SSA$ is often called ``between group" SS: measures the variability of observations between factor levels
+
+$SSE$ is often called ``within group" SS: measures the variability of observations within factor levels. 
+\newpage
+\subsection{F-Test}
+$$F=\frac{MSA}{MSE}\sim F_{a-1,N-1}$$
+\textbf{Hypothesis Test Using ANOVA}
+
+Hypothesis: $H_0:\mu_1=\mu_2=...=\mu_a$ vs. $H_a:$ at least one of the means $\mu_j$ differs from others; for $j=1,2,...,a$. 
+
+Test Statistic and its Distribution under $H_0$: 
+$$F=\frac{MSA}{MSE}=\frac{\frac{SSA}{a-1}}{\frac{SSE}{N-a}}\sim F_{a-1,N-a}\text{\ under }H_0$$
+P-value: $p=P(F_{a-1,N-a}>F)$
+
+\begin{eg}
+\normalfont
+\textbf{Arthiritis Clinical Study-ANOVA}
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 11".JPG}
+\end{center}
+
+In this study we have levels $a=2$, $H_0: \mu_A=\mu_P$, $H_a: \mu_a\neq \mu_P$. 
+$$F=\frac{MSA}{MSE}=\frac{MS\text{Treatment}}{MS\text{MSResidual}}=6.97\sim F_{1,291}$$
+So the p-value will be $p=P(F_{1,291}>6.97)=0.008713<0.05$. Therefore, we reject $H_0$, we have very strong evidence that the Auranofin and Placebo therapy differs. Since $a=2$, we can have an easy follow up for two sample t-test with $H_a:\mu_A>\mu_P$. Once $\bar{y}_A>\bar{y}_P$ then we cam conclude that Auranofin is effective. 
+\end{eg}
 
 \end{document}
 

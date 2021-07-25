@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.16)  24 JUL 2021 23:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.16)  25 JUL 2021 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1120,7 +1120,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 137--137
 tribution-
  []
 
-<doclicense-CC-by-nc-nd.pdf, id=109, 120.45pt x 42.1575pt>
+<doclicense-CC-by-nc-nd.pdf, id=141, 120.45pt x 42.1575pt>
 File: doclicense-CC-by-nc-nd.pdf Graphic file (type pdf)
 <use doclicense-CC-by-nc-nd.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc-nd.pdf  used on input line 137.
@@ -1140,68 +1140,90 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 148.
  [4]
-<"Pic 1".JPG, id=146, 1446.40375pt x 1084.05pt>
+<"Pic 1".JPG, id=187, 1446.40375pt x 1084.05pt>
 File: "Pic 1".JPG Graphic file (type jpg)
 <use "Pic 1".JPG>
 Package pdftex.def Info: "Pic 1".JPG  used on input line 187.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [5 <./Pic 1.JPG>] [6] [7]
-<"Pic 2".JPG, id=168, 1446.40375pt x 1084.05pt>
+<"Pic 2".JPG, id=209, 1446.40375pt x 1084.05pt>
 File: "Pic 2".JPG Graphic file (type jpg)
 <use "Pic 2".JPG>
 Package pdftex.def Info: "Pic 2".JPG  used on input line 268.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [8 <./Pic 2.JPG>]
-<"Pic 3".JPG, id=178, 1256.695pt x 520.94624pt>
+<"Pic 3".JPG, id=218, 1256.695pt x 520.94624pt>
 File: "Pic 3".JPG Graphic file (type jpg)
 <use "Pic 3".JPG>
 Package pdftex.def Info: "Pic 3".JPG  used on input line 302.
 (pdftex.def)             Requested size: 469.75499pt x 194.7264pt.
  [9 <./Pic 3.JPG>]
-<"Pic 4".JPG, id=187, 1415.2875pt x 317.185pt>
+<"Pic 4".JPG, id=227, 1415.2875pt x 317.185pt>
 File: "Pic 4".JPG Graphic file (type jpg)
 <use "Pic 4".JPG>
 Package pdftex.def Info: "Pic 4".JPG  used on input line 325.
 (pdftex.def)             Requested size: 469.75499pt x 105.27634pt.
  [10 <./Pic 4.JPG>] [11]
 [12] [13] [14]
-<"pic 5".JPG, id=232, 1446.40375pt x 1084.05pt>
+<"pic 5".JPG, id=272, 1446.40375pt x 1084.05pt>
 File: "pic 5".JPG Graphic file (type jpg)
 <use "pic 5".JPG>
 Package pdftex.def Info: "pic 5".JPG  used on input line 453.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [15 <./pic 5.JPG>]
-<"pic 6".JPG, id=238, 1446.40375pt x 1084.05pt>
+<"pic 6".JPG, id=278, 1446.40375pt x 1084.05pt>
 File: "pic 6".JPG Graphic file (type jpg)
 <use "pic 6".JPG>
 Package pdftex.def Info: "pic 6".JPG  used on input line 463.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
-<"pic 7".JPG, id=239, 1446.40375pt x 1084.05pt>
+<"pic 7".JPG, id=279, 1446.40375pt x 1084.05pt>
 File: "pic 7".JPG Graphic file (type jpg)
 <use "pic 7".JPG>
 Package pdftex.def Info: "pic 7".JPG  used on input line 466.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [16 <./pic 6.JPG>]
-<"pic 8".JPG, id=244, 1446.40375pt x 1084.05pt>
+<"pic 8".JPG, id=284, 1446.40375pt x 1084.05pt>
 File: "pic 8".JPG Graphic file (type jpg)
 <use "pic 8".JPG>
 Package pdftex.def Info: "pic 8".JPG  used on input line 469.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [17 <./pic 7.JPG>]
-[18 <./pic 8.JPG>] [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 499.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 499.
+[18 <./pic 8.JPG>] [19] [20]
+<"pic 9".JPG, id=309, 1446.40375pt x 1084.05pt>
+File: "pic 9".JPG Graphic file (type jpg)
+<use "pic 9".JPG>
+Package pdftex.def Info: "pic 9".JPG  used on input line 594.
+(pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
+<"pic 10".JPG, id=310, 763.85374pt x 370.38374pt>
+File: "pic 10".JPG Graphic file (type jpg)
+<use "pic 10".JPG>
+Package pdftex.def Info: "pic 10".JPG  used on input line 604.
+(pdftex.def)             Requested size: 140.92792pt x 68.3334pt.
+ [21 <./pic 9.JPG> <./pic 10.JPG>] [22]
+Overfull \hbox (1.4358pt too wide) in paragraph at lines 673--673
+[]|\OT1/cmr/m/n/10.95 Group/Regression| 
+ []
+
+[23]
+<"pic 11".JPG, id=327, 1446.40375pt x 1084.05pt>
+File: "pic 11".JPG Graphic file (type jpg)
+<use "pic 11".JPG>
+Package pdftex.def Info: "pic 11".JPG  used on input line 703.
+(pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
+ [24 <./pic 11.JPG>] [25]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 711.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 711.
  (./STA305 Notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 499.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 499.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 711.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 711.
 Package rerunfilecheck Info: File `"STA305 Notes".out' has not changed.
-(rerunfilecheck)             Checksum: 7E44948C9543C5864DFB04BBFAA12AB6;1316.
+(rerunfilecheck)             Checksum: 4FFFF1DE97ECC1EC507A7E2E01DB6849;1905.
  ) 
 Here is how much of TeX's memory you used:
- 32503 strings out of 492616
- 651253 string characters out of 6129481
+ 32549 strings out of 492616
+ 651843 string characters out of 6129481
  727026 words of memory out of 5000000
- 35834 multiletter control sequences out of 15000+600000
+ 35854 multiletter control sequences out of 15000+600000
  542590 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,84p,1119b,1030s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1217,11 +1239,12 @@ l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "STA305 Notes.pdf" (19 pages, 936373 bytes).
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "STA305 Notes.pdf" (25 pages, 1197380 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 369 words of extra memory for PDF output out of 10000 (max. 10000000)
 
