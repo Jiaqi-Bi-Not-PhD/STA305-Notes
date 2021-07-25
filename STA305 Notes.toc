@@ -15,3 +15,4 @@
 \contentsline {subsection}{\numberline {2.2}Review of Hypothesis Testing}{12}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Review: Two Sample T-Tests}{12}{subsection.2.3}% 
 \contentsline {subsection}{\numberline {2.4}Pooled T-Test}{13}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Welch's T-Test Using Satterthwaite Approximation}{14}{subsection.2.5}% 

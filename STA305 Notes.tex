@@ -430,6 +430,70 @@ $$t=\frac{(\bar{x}-\bar{y})-D_0}{\sqrt{s_p^2(\frac{1}{n_1}+\frac{1}{n_2})}}\sim 
 Conclusion: Reject $H_0$ is $p<\alpha$ and failed to reject otherwise. 
 \end{defn}
 
+\subsection{Welch's T-Test Using Satterthwaite Approximation}
+\begin{defn}
+\normalfont
+Used when population variances are not equal or inconclusive evidence about equality of variances. 
+
+\textbf{Assumptions}: Two samples are random from the target populations and the samples are independent from each other; Two samples are Normal. 
+
+\textbf{Test Statistic for Welch's T-Test}
+$$t=\frac{(\bar{x}-\bar{y})-D_0}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim t_{\mu}\text{ under }H_0$$
+where
+$$\mu=\frac{(s_1^2/n_1+s_2^2/n_2)^2}{\frac{(s_1^2/n_1)^2}{n_1-1}+\frac{(s_2^2/n_2)^2}{n_2-1}}$$
+
+The degree of freedom is calculated by Satterthwaite Approximation. Note that $\mu$ may not be an integer, \colorbox{pink}{round down to the nearest integer}. 
+\end{defn}
+\newpage
+\begin{eg}
+\normalfont
+Example of Arthritis Clinical Study
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 5".JPG}
+\end{center}
+
+There are 293 patients who suffering from RA, they are firstly measured of the initial pain. Then 146 are taking Auranofin and 147 are taking Placebo. After 6 months, we measure their pains and compare. There is a repeated measurement which is before pain and after pain. This is a between subjects design. The factor of the experiment is treatment (medicine). It has 2 levels that are Auranofin and Placebo. The responses are Pain before and Pain after 6 months. The researcher will compare the difference. $\mu_A=$ mean difference in pain (before-after) for Auranofin users. $\mu_P$=mean difference in pain (before-after) for placebo users. 
+
+Question: Does the Auranofin therapy improve the pain? i.e., Is $\mu_A>\mu_P$? Note that $\mu$ is a mean difference, not the pain level! 
+\newpage
+The R Output is following: 
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 6".JPG}
+\end{center}
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 7".JPG}
+\end{center}
+\begin{center}
+	\includegraphics[width=1\textwidth]{"pic 8".JPG}
+\end{center}
+
+Using hand calculation: 
+
+Pooled T-Test: $H_0: \mu_A=\mu_P$ vs. $H_a: \mu_A>\mu_P$, we have data: 
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+\hline
+Treatment & $n$ & $\bar{y}$ & $s^2$ \\
+\hline
+Auranofin & $146$ & $0.6575$ & $1.1785$ \\ 
+Placebo & $147$ & $0.3401$ & $0.9383$ \\ 
+\hline
+\end{tabular}
+\end{center}
+
+With the data above, we have 
+$$s_{\text{pooled}}^2=\frac{145(1.1785)+146(0.9383)}{293-2}\doteq 1.0660$$
+$$t=\frac{(\bar{y}_A-\bar{y}_P)-0}{\sqrt{s_{\text{pooled}}^2(\frac{1}{n_A}+\frac{1}{n_P})}}=\frac{0.6575-0.3401}{\sqrt{1.0660(\frac{1}{146}+\frac{1}{147})}}\doteq 2.64\sim t_{291}\text{ under }H_0$$
+
+By using T-Table: $p=P(t_{291}>2.64)=0.0041<0.05$. 
+
+Since $p<0.05$, we reject $H_0$. Strong evidence to conclude that Auranofin therapy helps improve pains. 
+
+Using R, we can get the exact p-value that the 2 sided $p=0.0087$, so the exact p value will be $p=P(t_{291}>2.64)=\frac{0.0087}{2}=0.00435$. The conclusion still holds. 
+\end{eg}
 
 
 \end{document}
