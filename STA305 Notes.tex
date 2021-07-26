@@ -686,7 +686,7 @@ $SSA$ is often called ``between group" SS: measures the variability of observati
 $SSE$ is often called ``within group" SS: measures the variability of observations within factor levels. 
 \newpage
 \subsection{F-Test}
-$$F=\frac{MSA}{MSE}\sim F_{a-1,N-1}$$
+$$F=\frac{MSA}{MSE}\sim F_{a-1,N-a}$$
 \textbf{Hypothesis Test Using ANOVA}
 
 Hypothesis: $H_0:\mu_1=\mu_2=...=\mu_a$ vs. $H_a:$ at least one of the means $\mu_j$ differs from others; for $j=1,2,...,a$. 
@@ -704,9 +704,278 @@ P-value: $p=P(F_{a-1,N-a}>F)$
 \end{center}
 
 In this study we have levels $a=2$, $H_0: \mu_A=\mu_P$, $H_a: \mu_a\neq \mu_P$. 
-$$F=\frac{MSA}{MSE}=\frac{MS\text{Treatment}}{MS\text{MSResidual}}=6.97\sim F_{1,291}$$
+$$F=\frac{MSA}{MSE}=\frac{MS_{\text{Treatment}}}{MS_{\text{Residual}}}=6.97\sim F_{1,291}$$
 So the p-value will be $p=P(F_{1,291}>6.97)=0.008713<0.05$. Therefore, we reject $H_0$, we have very strong evidence that the Auranofin and Placebo therapy differs. Since $a=2$, we can have an easy follow up for two sample t-test with $H_a:\mu_A>\mu_P$. Once $\bar{y}_A>\bar{y}_P$ then we cam conclude that Auranofin is effective. 
 \end{eg}
+
+\section{Lec 3 One-Way ANOVA with $a$ Levels}
+\subsection{Computational Formulae for SS}
+\begin{itemize}
+\item $SST=\sum_{j=1}^a\sum_{i=1}^{n_j}y_{ij}^2-N\bar{y}_T^2=[Y]-[T]$
+\item $SSA=\sum_{j=1}^an_j\bar{y}_j^2-N\bar{y}_T^2=[A]-[T]$
+\item $SSE=\sum_{j=1}^a\sum_{i=1}^{n_j}y_{ij}^2-\sum_{j=1}^an_j\bar{y}_j^2=[Y]-[A]$
+\end{itemize}
+$[Y]$ denotes the individual observations ($n$), $[A]$ denotes the actual groups means, $[T]$ denotes the grand means. The actual formula for these are:
+\begin{itemize}
+\item $[Y]=\sum_{j=1}^a\sum_{i=1}^{n_j}y_{ij}^2$
+\item $[A]=\sum_{j=1}^an_j\bar{y}_j^2$
+\item $[T]=N\bar{y}_T^2$
+\end{itemize}
+\subsection{Proofs of Computational Formulae for SS}
+\begin{proof}
+
+\begin{align*}
+SST&=\sum_{j=1}^a\sum_{i=1}^{n_j}(y_{ij}-\bar{y}_T)^2\\
+&=\sum_i\sum_jy_{ij}^2-2\bar{y}_T\sum_i\sum_jy_{ij}+\sum_i\sum_j\bar{y}_T^2\\
+&=[Y]-2\bar{y}_TN\bar{y}_T+N\bar{y}_T^2\\
+&=[Y]-N\bar{y}_T^2\\
+&=[Y]-[T]
+\end{align*}
+
+\begin{align*}
+SSA&=\sum_{j=1}^an_j(\bar{y}_j-\bar{y}_T)^2\\
+&=\sum_jn_j\bar{y}_j^2-2\sum_j\bar{y}_Tn_j\bar{y}_j+\sum_jn_jy_T^2\\
+&=[A]-2\bar{y}_T\sum_jn_j\bar{y}_j+Ny_T^2\\
+&=[A]-N\bar{y}_T^2\\
+&=[A]-[T]
+\end{align*}
+
+\begin{align*}
+SSE&=\sum_i\sum_j(y_{ij}-\bar{y}_j)^2\\
+&=\sum_i\sum_jy_{ij}^2-\sum_i\sum_j2\bar{y}_jy_{ij}+\sum_i\sum_j\bar{y}_j^2\\
+&=[Y]-2\sum_j\bar{y}_j\sum_iy_{ij}+\sum_jn_j\bar{y}_j^2\\
+&=[Y]-\sum_jn_j\bar{y}_j^2\\
+&=[Y]-[A]
+\end{align*}
+
+\begin{align*}
+SST&=[Y]-[T]\\
+&=[A]-[T]+[Y]-[A]\\
+&=SSA+SSE
+\end{align*}
+
+\end{proof}
+\newpage
+\begin{eg}
+\normalfont
+
+Example of Fertilizers in Farming
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 12".JPG}
+\end{center}
+\newpage
+
+R output as follows:
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 13".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 14".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 15".JPG}
+\end{center}
+
+The experimental unit is a plot. The factor is the brand of fertilizer which are A, B, C, D (4 levels/treatments). The response is the crop field (in kg). In the experiment, $N=16$ plots, $n=4$, $n_A=n_C=n_C=n_D$ that means it's a balanced design. The hypothesis test is $H_0: \mu_A=\mu_B=\mu_C=\mu_D$ vs. $H_a: \mu_i\neq \mu_j$ for at least one pair of $i,j$ that $i\neq j$, and $i,j=$A, B, C, D. 
+
+$$F=\frac{MS_{\text{Fertilizer}}}{MSE}=4.3629\sim F_{3,12} \text{ under } H_0$$
+$$p=P(F_{3,12}>4.3629)\doteq 0.0269$$
+Since p value is less than 0.05, reject $H_0$. Strong evidence to conclude that the brands of fertilizer defer in crop yield. 
+
+Question for the next chapter:
+
+Which fertilizer is the best? - We can examine the boxplot or look at all pairwise comparisons between fertilizers. 
+
+Is Fertilizer A better than B, etc.? Does using Fertilizer A result in double the crop yield of using B, etc.? - Test Contrasts. 
+
+\end{eg}
+
+\subsection{What happens if we reject $H_0$?}
+If we reject $H_0$, ANOVA tells us that there is statistically significant difference between group means. When there are more than 2 groups, it can be because: 
+\begin{itemize}
+\item One group has a different mean than others
+\item Some groups have different means
+\item All groups have different means from each other
+\end{itemize}
+
+\section{Lec 4 Follow-Up Comparisons for One-Way ANOVA: Testing Contrasts and Post-Hoc Analysis}
+\subsection{Recall Example of Fertilizers in Farming- ANOVA}
+\begin{eg}
+\normalfont
+The R output as follows: 
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 16".JPG}
+\end{center}
+\end{eg}
+
+\subsection{Pairwise Comparisons}
+\begin{defn}
+\normalfont
+Compare one group mean to another group mean (1 df since there are 2 groups). Conducted like a two-sample t-test but use pooled estimate of variance which is calculated using all groups:
+$$s_p^2=\frac{1}{N-a}\sum_{j=1}^a(n_j-1)s_j^2=MSE$$
+where $s_j^2$ is the sample variance in the $j$th group and $\sum_{j=1}^an_j=N$. This $s_p^2$ is a better estimate of the variance than just using observations from 2 groups, which means more power. The idea is to set up (linear) contrasts to make comparisons. 
+\end{defn}
+
+\begin{defn}
+\normalfont
+\textbf{Linear Contrasts}
+A linear contrast is a linear combination of the group means: $\psi=\sum_{j=1}^ac_j\mu_j$. Restrict sum of the coefficients in the contrast to be $0$: $\sum_{j=1}^ac_j=0$. 
+\end{defn}
+We use $H_0: \mu_j=\mu_k$ for $j\neq k$, $j$, $k=1,2,...,a$. Results in coefficients such as $c=\{1,-1,0,0\}$, or $c=\{0,1,0,-1\}$, etc. Usually make the sign of $\psi$ positive to reflect direction of the difference we predict. If group 1 is predicted to be higher than group 2, then $c=\{1,-1,0,0\}$ rather than $c=\{-1,1,0,0\}$. Test $\psi=0$ using $\psi=\sum_{j=1}^ac_j\bar{Y}_j$. 
+
+Advantages of using Contrasts:
+\begin{itemize}
+\item Compare more than 2 groups or more than one set of equalities. 
+\item General procedure that cover many possible research questions. 
+\item Simple to check if contrasts are orthogonal/linearly independent. 
+\end{itemize}
+
+\begin{eg}
+\normalfont
+\textbf{Farming- Pairwise Comparisons Using Contrasts}
+
+Set up a table with coefficients to compare these pairwise means:
+\begin{itemize}
+\item Is Fertilizer A different from B?- \textcolor{red}{$\psi_1$}
+\item Is Fertilizer B different from C?- \textcolor{red}{$\psi_2$}
+\item Is Fertilizer C different from D?- \textcolor{red}{$\psi_3$}
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ |p{1cm}||p{1cm}|p{1cm}|p{1cm}|p{1cm}|  }
+ \hline
+ Group & A & B & C & D \\
+ \hline
+ $\psi_1$   & $1$    &$-1$&   $0$ & $0$\\
+ $\psi_2$ &   $0$  & $1$   & $-1$ & $0$\\
+ $\psi_3$ & $0$ & $0$ & $1$ & $-1$\\
+ \hline
+\end{tabular}
+\end{center}
+\newpage
+\textbf{Table Including Means and Contrast Estimates}
+
+\begin{center}
+\begin{tabular}{ |c||c|c|c|c|c|  }
+ \hline
+ Group & A & B & C & D & Contrast Estimate\\
+ \hline
+ Means & $58.75$ & $60$ & $68.75$ & $65.5$ & $\hat{\psi}$\\
+ \hline
+ $\psi_1$   & $1$    &$-1$&   $0$ & $0$ & $-1.25$\\
+ $\psi_2$ &   $0$  & $1$   & $-1$ & $0$ & $-8.75$\\
+ $\psi_3$ & $0$ & $0$ & $1$ & $-1$ & $3.23$\\
+ \hline
+\end{tabular}
+\end{center}
+
+Example of the calculation: 
+\begin{align*}
+\hat{\psi}_1=\sum_{j=1}^4c_j\bar{y}_j&=1(\bar{y}_A)-1(\bar{y}_B)+0(\bar{y}_C)+0(\bar{y}_D)\\
+&=\bar{y}_A-\bar{y}_B\\
+&=58.75-60=-1.25
+\end{align*}
+\end{eg}
+
+\begin{eg}
+\normalfont
+\textbf{Farming- More Complex Comparisons}
+
+Set up a table with coefficients to compare the following: 
+\begin{itemize}
+\item Compare the two farms: \textcolor{red}{$\psi_4$}
+\item Compare the two types of element-based fertilizers: \textcolor{red}{$\psi_5$}
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ |c||c|c|c|c|  }
+ \hline
+ Farm & 2 & 2 & 1 & 1 \\
+ Element & P & P & N & P\\
+ \hline
+ $\psi_4$   & $1$    &$1$&   $-1$ & $-1$\\
+ $\psi_5$ &   $1$  & $1$   & $-3$ & $1$\\
+ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Table Including All Comparisons}
+
+\begin{center}
+\begin{tabular}{ |c||c|c|c|c|c|  }
+ \hline
+ Group & A & B & C & D & Contrast Estimate\\
+ \hline
+ Farm & 2 & 2 & 1 & 1 & \\
+ Element & P & P & N & P& \\
+ Means & $58.75$ & $60$ & $68.75$ & $65.5$ & $\hat{\psi}$\\
+ \hline
+ $\psi_1$   & $1$    &$-1$&   $0$ & $0$ & $-1.25$\\
+ $\psi_2$ &   $0$  & $1$   & $-1$ & $0$ & $-8.75$\\
+ $\psi_3$ & $0$ & $0$ & $1$ & $-1$ & $3.23$\\
+ $\psi_4$   & $1$    &$1$&   $-1$ & $-1$ & $-15.5$\\
+ $\psi_5$ &   $1$  & $1$   & $-3$ & $1$ & $-22$\\
+ \hline
+\end{tabular}
+\end{center}
+
+Note that those numbers are table of $C_j$'s. 
+\end{eg}
+
+\subsection{Testing Using Contrasts}
+Under certain conditions, $\hat{\psi}\sim N\left(\sum_{i=1}^ac_j\mu_j, \sigma^2\sum_{i=1}^a\frac{c_j^2}{n_j}\right)$
+\begin{defn}
+\normalfont
+\textbf{Contrast Sum of Squares}
+
+The Contrast Sum of Squares is explained variation by the contrast: 
+$$SS_{\psi}=\frac{\hat{\psi}^2}{\sum_{j=1}^a(c_j^2/n_j)}$$
+\begin{itemize}
+\item Since 1 df, $MS_{\psi}=SS_{\psi}$
+\item Compare to MSE to see if contrast explains more of the variation than noise:
+$$F=\frac{MS_{\psi}}{MSE}$$
+\item Equivalent to a t-test: $t=\frac{\hat{\psi}}{\sqrt{MSE\sum_{j=1}^a(c_j^2/n_j)}}\sim t_{N-a}$ under $H_0$
+\item t Confidence Intervals for contrasts:
+$$\hat{\psi}\pm t_{N-a;\alpha/2}\sqrt{MSE\sum_{j=1}^a(c_j^2/n_j)}$$
+\end{itemize}
+\end{defn}
+\newpage
+\begin{eg}
+\normalfont
+Farming R output: 
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 17".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 18".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 19".JPG}
+\end{center}
+
+State the conclusions based on the contrasts that were tested. 
+\begin{itemize}
+\item Compare brands of fertilizers
+\item Compare farms
+\item Compare element bases
+\item Which fertilizer brand would you recommend? Why?
+\end{itemize}
+\underline{Conclusions}: 
+\begin{itemize}
+\item Moderate (to strong) evidence that Fertilizer C yields more than Fertilizer B
+\item Strong evidence that Farm 1 yields more than Farm 2
+\item Moderate (to strong) evidence that Nitrogen-based fertilizers are better than Phosphorous-based.
+\end{itemize}
+\end{eg}
+
 
 \end{document}
 

@@ -23,3 +23,11 @@
 \BOOKMARK [2][-]{subsection.2.11}{One-Way ANOVA Notation}{section.2}% 23
 \BOOKMARK [2][-]{subsection.2.12}{One-Way ANOVA Table}{section.2}% 24
 \BOOKMARK [2][-]{subsection.2.13}{F-Test}{section.2}% 25
+\BOOKMARK [1][-]{section.3}{Lec 3 One-Way ANOVA with a Levels}{}% 26
+\BOOKMARK [2][-]{subsection.3.1}{Computational Formulae for SS}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.2}{Proofs of Computational Formulae for SS}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.3}{What happens if we reject H0?}{section.3}% 29
+\BOOKMARK [1][-]{section.4}{Lec 4 Follow-Up Comparisons for One-Way ANOVA: Testing Contrasts and Post-Hoc Analysis}{}% 30
+\BOOKMARK [2][-]{subsection.4.1}{Recall Example of Fertilizers in Farming- ANOVA}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.2}{Pairwise Comparisons}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.3}{Testing Using Contrasts}{section.4}% 33
