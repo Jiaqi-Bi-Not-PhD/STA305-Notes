@@ -25,6 +25,7 @@
 \usepackage{ dsfont }
 \usepackage{soul}
 \usepackage{ulem,xpatch}
+\usepackage{caption}
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage[
@@ -974,6 +975,121 @@ State the conclusions based on the contrasts that were tested.
 \item Strong evidence that Farm 1 yields more than Farm 2
 \item Moderate (to strong) evidence that Nitrogen-based fertilizers are better than Phosphorous-based.
 \end{itemize}
+\end{eg}
+
+\subsection{Orthogonal Contrasts}
+\begin{defn}
+\normalfont
+This is useful for dividing sums of squares into different components. Any SS can be decomposed into as many independent sums as there are degrees of freedom. Two contrasts are said to be \colorbox{pink}{orthogonal} if: for $\psi_1$ and $\psi_2$ with coefficient vectors $\vec{c_1}$ and $\vec{c_2}$ respectively, 
+$$\sum_{j=1}^a\frac{c_{1j}c_{2j}}{n_j}=0$$
+Note that when sample sizes equal, then orthogonality simplifies to dot product of $0$:
+$$\vec{c_1}\cdot \vec{c_2}=\sum_{j=1}^ac_{1j}c_{2j}=0$$
+Orthogonality is a property of a pair of contrasts. If there are $k$ contrasts, then there are ${k\choose 2}$ pairs. 
+\end{defn}
+\begin{defn}
+\normalfont
+If all contrasts in a set are orthogonal to one another, then it's called \textcolor{red}{mutually orthogonal}. There can be no more mutually orthogonal contrasts than the treatment df (i.e. $a-1$). Any set of $a-1$ mutually orthogonal contrasts can be used to express the SS for the treatment/factor (for balanced designs at least): 
+$$SSA=\sum_{k=1}^{a-1}SS_{\psi k}$$
+If orthogonal, each SS is independent and each contrast test can be interpreted additively (no problems with multi-collinearity). 
+\end{defn}
+\begin{eg}
+\normalfont
+\textbf{Example: Farming - Orthogonal Contrasts}
+
+How many contrasts are orthogonal amongst the 5 contrasts we tested? 
+\begin{itemize}
+\item df for Fertilizer is 3. We are limited to 3 orthogonal contrasts
+\item Can we find a set of 3? Which contrasts? 
+\end{itemize}
+
+In this example, we can easily find that $a=4$, df$=3$ (calculated from $a-1$)
+\newpage
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c c c c|c|} 
+\hline
+\multicolumn{6}{|c|}{\textbf{Table to check Orthogonality}} \\
+ \hline
+ Group & A & B & C & D & \\ [0.5ex] 
+ \hline
+ $\psi_1$ & 1 & -1 & 0 & 0 &  \\ 
+ $\psi_2$ & 0 & 1 & -1 & 0 &  \\
+ $\psi_3$ & 0 & 0 & 1 & -1 &  \\
+ $\psi_4$ & 1 & 1 & -1 & -1 &  \\
+ $\psi_5$ & 1 & 1 & -3 & 1 & Sum \\ 
+ \hline
+ $\psi_1$ vs $\psi_2$ & 0 & -1 & 0 & 0 & -1 \\
+  \textcolor{red}{$\psi_1$ vs $\psi_3$} & 0 & 0 & 0 & 0 &  \textcolor{red}{0} \\
+  \textcolor{red}{$\psi_1$ vs $\psi_4$} & 1 & -1 & 0 & 0 &  \textcolor{red}{0} \\
+ \textcolor{red}{$\psi_1$ vs $\psi_5$} & 1 & -1 & 0 & 0 &  \textcolor{red}{0} \\
+ $\psi_2$ vs $\psi_3$ & 0 & 0 & -1 & 0 & -1 \\
+ $\psi_2$ vs $\psi_4$ & 0 & 1 & 1 & 1 & 2 \\
+ $\psi_2$ vs $\psi_5$ & 0 & 1 & 3 & 0 & 4 \\
+ \textcolor{red}{$\psi_3$ vs $\psi_4$} & 0 & 0 & -1 & 1 & \textcolor{red}{0} \\
+ $\psi_3$ vs $\psi_5$ & 0 & 0 & -3 & -1 & -4 \\
+ $\psi_4$ vs $\psi_5$ & 1 & 1 & 3 & -1 & 4 \\
+ \hline
+\end{tabular}
+\label{table:1}
+\end{table}
+
+We have ${5\choose 2}=10$ pairs of contrast. In this example, we have $a=4$, so there are $a-1=3$ mutually orthogonal contrasts. We will choose $\psi_1$, $\psi_3$, $\psi_4$ to be mutually orthogonal. 
+\end{eg}
+\subsection{Method for Constructing Mutually Orthogonal Set}
+We have $a$ groups, we will compare 1st group to average of all other groups. For all other contrasts, make 1st group's coefficient 0. Compare 2nd group to average of the latter groups. Continue this pattern. Make 2nd group's coefficient 0. Compare 3rd group to average of the latter groups, and so on...
+
+\textbf{Constructing Helmert Contrasts}
+
+Start with $c_1=1$ and $c_j=-\frac{1}{a-1}$ for $j>1$. For $j=2,...,a-1$, let $c_k=0$ when $k\leq j-1$ and $c_j=1$ and $c_k=-\frac{1}{a-j}$ when $k\geq j+1$. These contrasts are known as \textcolor{red}{Helmert Contrasts}. 
+
+\begin{eg}
+\normalfont
+\textbf{Farming: Helmert Contrasts}
+
+Construct the Helmert Contrasts. Verify that their contrasts are mutually orthogonal. 
+
+In this example, we have group $a=4$, it implies to there are $3$ contrasts are mutually orthogonal. Note that the following vector has the order of $(A, B, C, D)$:
+$$\psi_1: \vec{c_1}=(1,-1/3, -1/3, -1/3)\implies A \text{ to average of others}$$
+$$\psi_2: \vec{c_2}=(0, 1, -1/2, -1/2)\implies B \text{ to average of latter groups}$$
+$$\psi_3: \vec{c_3}=(0, 0, 1, -1)\implies C \text{ to average of latter groups}$$
+$$\vec{c_1}\cdot \vec{c_2}=\vec{c_1}\cdot \vec{c_3}=\vec{c_2}\cdot \vec{c_3}=0\implies \psi_1, \psi_2, \psi_3 \text{ are mutually orthogonal.} $$
+\end{eg}
+
+\subsection{Balanced Designs}
+ANOVA is the best for balanced designs, there are potential problems with unbalanced designs. MSE in unbalanced designs:
+\begin{itemize}
+\item MSE is a pooled variance, weighted by size of each group. Larger groups dominate MSE towards their variance. 
+\item MSE is still unbiased for $\sigma^2$. 
+\end{itemize}
+In balanced designs: 
+\begin{itemize}
+\item MSE gets an equal contribution from each group. 
+\item SSA can be decomposed into the sum of the contrast SS. 
+\item Usually more powerful. 
+\end{itemize}
+ANOVA can still be used for unbalanced designs. The more unequal the group sizes, the poorer the performance. So, we need to attempt to design balanced experiment. Sometimes necessary to use unbalanced designs (e.g. Larger control group). 
+
+\subsection{Problem with Multiple Comparisons}
+Inflation of Type I Error rate: Chance of making a Type I Error is very high when conducting many simultaneous tests. 
+
+We are often interested in a family/group of different hypothesis tests or confidence intervals
+\begin{itemize}
+\item All pairwise differences in group means, there are ${a\choose 2}$ pairwise comparisons.
+\item Meaningful contrasts
+\end{itemize}
+The \textcolor{red}{familywise error rate, $\alpha_{FW}$} is the probability of making at least one Type I Error in the set of tests. Suppose we conduct $k$ independent tests, each at significance level $\alpha$, then: 
+\begin{align*}
+\textcolor{red}{\alpha_{FW}}&\textcolor{red}{=P(\text{reject at least one $H_0|$all $H_0$ are true})}\\
+&\textcolor{red}{=1-(1-\alpha)^k}
+\end{align*}
+\begin{eg}
+\normalfont
+\textbf{Familywise Type I Error Rate}
+
+If we conduct $k=5$ tests (e.g., 5 contrasts such as in the Farming example) with $\alpha=0.05$, then
+$$\alpha_{FW}=P(\text{at least one Type I Error})=1-(1-0.05)^5=0.2262$$
+The probability of committing a Type I Error somewhere in these tests is now $22.62\%$. Inflated Type I Error: will increase even more as we increase number of tests. If tests are dependent, $\alpha_{FW}$ will be lower, but not lower than the Type I Error rate for any individual test. We need to control for this. 
 \end{eg}
 
 

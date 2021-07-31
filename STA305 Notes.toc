@@ -32,3 +32,7 @@
 \contentsline {subsection}{\numberline {4.1}Recall Example of Fertilizers in Farming- ANOVA}{31}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Pairwise Comparisons}{32}{subsection.4.2}% 
 \contentsline {subsection}{\numberline {4.3}Testing Using Contrasts}{34}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Orthogonal Contrasts}{36}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}Method for Constructing Mutually Orthogonal Set}{38}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.6}Balanced Designs}{39}{subsection.4.6}% 
+\contentsline {subsection}{\numberline {4.7}Problem with Multiple Comparisons}{39}{subsection.4.7}% 
