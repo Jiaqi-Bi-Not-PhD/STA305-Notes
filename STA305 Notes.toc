@@ -36,3 +36,9 @@
 \contentsline {subsection}{\numberline {4.5}Method for Constructing Mutually Orthogonal Set}{38}{subsection.4.5}% 
 \contentsline {subsection}{\numberline {4.6}Balanced Designs}{39}{subsection.4.6}% 
 \contentsline {subsection}{\numberline {4.7}Problem with Multiple Comparisons}{39}{subsection.4.7}% 
+\contentsline {subsection}{\numberline {4.8}Pre-planned Tests/Primary Research Questions}{40}{subsection.4.8}% 
+\contentsline {subsection}{\numberline {4.9}Simple Solution to Correct Type I Error}{40}{subsection.4.9}% 
+\contentsline {subsection}{\numberline {4.10}Bonferroni Method}{41}{subsection.4.10}% 
+\contentsline {subsection}{\numberline {4.11}Sidak-Bonferroni Procedure}{42}{subsection.4.11}% 
+\contentsline {subsection}{\numberline {4.12}Confidence Intervals}{43}{subsection.4.12}% 
+\contentsline {subsection}{\numberline {4.13}Tukey's HSD Procedure}{43}{subsection.4.13}% 

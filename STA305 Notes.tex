@@ -27,6 +27,8 @@
 \usepackage{ulem,xpatch}
 \usepackage{caption}
 \usepackage{tabularx}
+\usepackage{listings}
+%\usepackage[usenames,dvipsnames]{color}
 \usepackage{setspace}
 \usepackage[
     type={CC},
@@ -35,6 +37,7 @@
 ]{doclicense}
 \usetikzlibrary{matrix,shapes,arrows,positioning,chains}
 \usepackage{graphicx}
+
 
 
 \newcommand{\soutthick}[1]{%
@@ -1091,6 +1094,101 @@ If we conduct $k=5$ tests (e.g., 5 contrasts such as in the Farming example) wit
 $$\alpha_{FW}=P(\text{at least one Type I Error})=1-(1-0.05)^5=0.2262$$
 The probability of committing a Type I Error somewhere in these tests is now $22.62\%$. Inflated Type I Error: will increase even more as we increase number of tests. If tests are dependent, $\alpha_{FW}$ will be lower, but not lower than the Type I Error rate for any individual test. We need to control for this. 
 \end{eg}
+
+\subsection{Pre-planned Tests/Primary Research Questions}
+Most often, an experiment is set up to answer one primary research question. Could also have follow-up questions. 
+\begin{itemize}
+\item If research question/tests are pre-planned/ad-hoc (before looking at the results of the analysis), it can be tested without correcting Type I Error
+\item Why before and not after? \textit{Fishing for significant results!}
+\item If question is important, do not conduct it in a family of less powerful tests
+\item Need to correct if we test secondary research questions or make comparisons after seeing results of analysis (post-hoc)
+\end{itemize}
+
+\subsection{Simple Solution to Correct Type I Error}
+\begin{itemize}
+\item Decrease the family wise Type I Error rate ($\alpha_{FW}$) by decreasing the Type I Error rate for each individual test ($\alpha$)
+\item Adjust Type I Error for the worst case (independent tests)
+\item This adjustment results in less power/higher chance of making Type II Error
+\end{itemize}
+Are there other solutions? Yes: 
+\begin{enumerate}
+\item Bonferroni
+\item Sidak-Bonferroni
+\item Tukey's HSD
+\item Scheffe
+\end{enumerate}
+
+\subsection{Bonferroni Method}
+\begin{defn}
+\normalfont
+Bonferroni inequality: $P(A\cup B)\leq P(A)+P(B)$. 
+
+Let $A_i$ be the event of making a Type I Error on $i$th test, then: $\alpha_{FW}=P(\bigcup_{i=1}^k A_i)\leq \sum_{i=1}^k P(A_i)$. Note that $\alpha_i=P(A_i)$ for $i=1,...,k$. 
+
+\textbf{Bonferroni Method}
+
+For each of the $k$ tests, use a significance level of $\alpha_{FW}/k$. Then CI coverage rate or Type I Error rate is at most $100(1-\alpha_{FW})\%$ or $\alpha_{FW}$. 
+\begin{itemize}
+\item Conservative procedure
+\item Since the chance of making at least one Type I Error can be much lower than $\alpha$, it is likely that the $k$ tests may result in Type II Error (less powerful)
+\item Type I Errors are not always more serious than Type II (depends on the context)
+\end{itemize}
+\end{defn}
+\begin{eg}
+\normalfont
+\ 
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 20".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 21".JPG}
+\end{center}
+
+\end{eg}
+\subsection{Sidak-Bonferroni Procedure}
+Bonderroni procedure is simple to use (by hand). We can improve procedure if using computer for calculations by directly working with: $\alpha_{FW}=1-(1-\alpha)^k$ 
+\begin{defn}
+\normalfont
+\textbf{Sidak Bonderroni Method}
+
+Adjust the individual Type I Error as follows: 
+$$\alpha=1-(1-\alpha_{FW})^{1/k}$$
+For example, $k=5$ and $\alpha_{FW}=0.05$ compare Bonferroni and Sidak-Bonferroni: 
+\begin{itemize}
+\item $\alpha_B=\frac{0.05}{5}=0.01$
+\item $\alpha=1-(1-0.05)^{1/5}=0.0102$ This is slight higher due to lower individual Type I Error rate.
+\end{itemize}
+Still have same family-wise rate, but more power for individual tests.
+\end{defn}
+\newpage
+\subsection{Confidence Intervals}
+For tests, we adjust the p-values or individual significance levels. For CIs, adjust the critical value. Suppose we want to construct $k$ confidence intervals with familywise coverage of $100(1-\alpha_{FW})\%$, then use
+$$\hat{\theta}\pm t_{df,\frac{\alpha_{FW}}{2k}}SE(\hat{\theta})$$
+\subsection{Tukey's HSD Procedure}
+\begin{itemize}
+\item Based on ``Studentized Range Distribution" which is based on $\max_{j,k\in\{1,2,...,a\}}\{\bar{y}_j-\bar{y}_k\}$
+\item Gives a simultaneous Type I Error rate of $\alpha_{FW}$ or confidence level of $100(1-\alpha_{FW})\%$
+\item Conservative if unbalanced design
+\item Less conservative than Bonferroni method, especially if group sample sizes are equal (approx.)
+\end{itemize}
+\begin{defn}
+\normalfont
+\textbf{Tukey's Honestly Significant Difference (for differences between pairs of groups)}
+
+Confidence interval for $\mu_k-\mu_j$ is:
+$$(\bar{y}_j-\bar{y}_k)\pm \frac{q_{\alpha_{FW};a,N-a}}{\sqrt{2}}\sqrt{MSE(\frac{1}{n_j}+\frac{1}{n_k})}$$
+where $q_{\alpha;a,N-a}$ is the appropriate critical value of the Studentized Range Distribution. 
+
+To avoid redundancy, compare the largest and smallest means and if we failed to reject $H_0$, then stop. If $H_0$ is rejected, compare next largest to next smallest means and continue on...
+\end{defn}
+Code: 
+\begin{lstlisting}
+> TukeyHSD(aov(model_name), factor=``factor_name")
+\end{lstlisting}
+`R'Gives CIs for all pairwise means. Reject $H_0$ for the given pair if the adjusted p-value $<\alpha$ or CI does not contain 0.
+
 
 
 \end{document}
