@@ -42,3 +42,7 @@
 \contentsline {subsection}{\numberline {4.11}Sidak-Bonferroni Procedure}{42}{subsection.4.11}% 
 \contentsline {subsection}{\numberline {4.12}Confidence Intervals}{43}{subsection.4.12}% 
 \contentsline {subsection}{\numberline {4.13}Tukey's HSD Procedure}{43}{subsection.4.13}% 
+\contentsline {subsection}{\numberline {4.14}Scheffe's Procedure}{45}{subsection.4.14}% 
+\contentsline {subsection}{\numberline {4.15}Pros and Cons of each Method}{46}{subsection.4.15}% 
+\contentsline {section}{\numberline {5}Lec 5 Linear Model Assumptions and ANOVA Coding Schemes}{47}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Statistical Models for ANOVA}{47}{subsection.5.1}% 

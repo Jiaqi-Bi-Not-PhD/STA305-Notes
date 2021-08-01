@@ -1187,7 +1187,85 @@ Code:
 \begin{lstlisting}
 > TukeyHSD(aov(model_name), factor=``factor_name")
 \end{lstlisting}
-`R'Gives CIs for all pairwise means. Reject $H_0$ for the given pair if the adjusted p-value $<\alpha$ or CI does not contain 0.
+`R' Gives CIs for all pairwise means. Reject $H_0$ for the given pair if the adjusted p-value $<\alpha$ or CI does not contain 0.
+\newpage
+\begin{eg}
+\normalfont
+Here is the R Code and output for Tukey on the example of Farming: 
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 22".JPG}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 23".JPG}
+\end{center}
+\end{eg}
+\newpage
+Can we control Type I Error over all possible contrasts?
+\begin{itemize}
+\item Using Bonferroni methods, $\alpha$ for individual tests will go to 0 as we increase number of tests.
+\item Tukey covers pairwise differences only
+\item If there is some other way, we cam test for any number of questions without worrying i.e. Scheffe.
+\end{itemize}
+
+\subsection{Scheffe's Procedure}
+Consequence for ANOVA: If we failed to reject $H_0$ in the ANOVA F-Test, no follow-up test will be significant using Scheffe's procedure. If the ANOVA F-Test is significant, there is at least one contrast that is significant using Scheffe's procedure. This is not necessarily true for other multiple comparison procedures. 
+
+Apply for contrasts using F or t-test. Contrasts do not have to be specified beforehand. 
+\begin{defn}
+\normalfont
+\textbf{Scheffe's Procedure using F tests}
+
+Scheffe's Critical Value, $F_S$: 
+Multiply the F critical value for the contrast by $(a-1)$: 
+$$F_S=(a-1)F_{a-1,N-a,\alpha_{FW}}$$
+$F_S$ is larger than the uncorrected critical value (accounts for many contrasts that could be tested). Calculate the observed F test statistic and compare it to the Scheffe critical value. 
+\end{defn}
+\begin{defn}
+\normalfont
+\textbf{Scheffe's Procedure using t tests}
+
+Scheffe's Critical Value, $t_S$:
+
+Recall: $t_v^2=F_{1,v}$:
+$$t_S=\sqrt{F_S}=\sqrt{(a-1)F_{a-1, N-a, \alpha_{FW}}}$$
+Calculate the observed t test statistic and compare it to the Scheffe critical value. 
+\end{defn}
+\newpage
+\begin{eg}
+\normalfont
+\textbf{Farming Example}
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{"pic 24".JPG}
+\end{center}
+\end{eg}
+\subsection{Pros and Cons of each Method}
+Which method to choose? 
+\begin{itemize}
+\item If design is balanced (approx.) and we are interested in all pairwise differences between groups, Tukey is most powerful. 
+\item If we are interested in follow-up contrasts (beyond pairwise differences) and all comparisons can be specified in advance: 
+\begin{itemize}
+\item Bonfferoni is the most of the time more powerful than Tukey
+\item Sidak-Bonferroni is even better
+\end{itemize}
+\item If we are interested in several follow-up contrasts that connot be specified in advance, Scheffe should be used
+\end{itemize}
+What to do if a result is significant before correction but not significant after the correction?
+\begin{itemize}
+\item Exploratory Findings!
+\item If it is of importance, best to design another experiment to directly test it (pre-planned test)
+\end{itemize}
+
+\section{Lec 5 Linear Model Assumptions and ANOVA Coding Schemes}
+\subsection{Statistical Models for ANOVA}
+\begin{itemize}
+\item Many different models that can be assumed for ANOVA
+\item Discussed some such as: Dummy variable/reference, cell means model, etc.
+\item Assumptions: Gauss-Markov conditions, normality, etc. 
+\item Now develop formal linear models
+\end{itemize}
 
 
 
