@@ -11,10 +11,11 @@
 
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{xcolor}
+%\usepackage{xcolor}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{tikz-cd}
@@ -28,7 +29,7 @@
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{listings}
-%\usepackage[usenames,dvipsnames]{color}
+
 \usepackage{setspace}
 \usepackage[
     type={CC},
@@ -46,7 +47,28 @@
     \renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
 }
 
-
+\lstset{ 
+  language=R,                     % the language of the code
+  basicstyle=\tiny\ttfamily, % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{Blue},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it is 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  keywordstyle=\color{RoyalBlue},      % keyword style
+  commentstyle=\color{YellowGreen},   % comment style
+  stringstyle=\color{ForestGreen}      % string literal style
+} 
 
 
 \title{\textbf{STA305 Design and Analysis of Experiments Lecture Notes (2021 Summer)}}
@@ -181,7 +203,7 @@ A flowchart that generally explain this:
 Example of different treatments: Medicine \& Placebo
 \begin{eg}
 \normalfont
-A research team wants to test their effect of a new medicine on the Migraine. They have the \colorbox{pink}{treatment group} of New Pill, and they have the \colorbox{pink}{control group} of Placebo. Then they will test migraine sufferers. The \colorbox{pink}{response} will be the pain level from 1 to 10 subjectively measured by patients themselves. The duration will be 2 hours after taking the pill. In this experiment, the \colorbox{pink}{nuisance variables} are: Age, Sleep hours, Diet, Severity of migraines... \colorbox{pink}{The treatment has two levels}: pill and placebo
+A research team wants to test their effect of a new medicine on the Migraine. They have the treatment group of New Pill, and they have the control group of Placebo. Then they will test migraine sufferers. The response will be the pain level from 1 to 10 subjectively measured by patients themselves. The duration will be 2 hours after taking the pill. In this experiment, the nuisance variables are: Age, Sleep hours, Diet, Severity of migraines... The treatment has two levels: pill and placebo
 \end{eg}
 \newpage
 \subsection{Steps of an Experimental Design}
@@ -206,10 +228,10 @@ Note this course we mainly focus on the experimental study. If you are intereste
 \textbf{Experimental Study}
 \begin{itemize}
 \item To assess the effect of a certain treatment or condition
-\item First randomly assign subjects to treatment, then control the rest. Randomization is important. Experimental data comes from experiments, so there are eligible reasons to conclude \colorbox{pink}{causation}. 
+\item First randomly assign subjects to treatment, then control the rest. Randomization is important. Experimental data comes from experiments, so there are eligible reasons to conclude {causation}. 
 \item Common in scientific and psychological research
-\item \colorbox{pink}{Between Subjects Design}: Each experimental unit is assigned only one treatment
-\item \colorbox{pink}{Within Subjects Design}: Each experimental unit is given all treatments
+\item {Between Subjects Design}: Each experimental unit is assigned only one treatment
+\item {Within Subjects Design}: Each experimental unit is given all treatments
 \end{itemize}
 \textbf{Observational Study}
 \begin{itemize}
@@ -239,7 +261,7 @@ Variables can be measured as either qualitative or quantitative and further cate
 \item Unordered categories
 \item Numerical computations are not applicable
 \item Ex: Gender, POSt, Favorite colors...
-\item When controlled by researcher, called \colorbox{pink}{Factor}
+\item When controlled by researcher, called {Factor}
 \end{itemize}
 \item Ordinal: Ordered categories without natural units/distance metric
 \begin{itemize}
@@ -263,7 +285,7 @@ Variables can be measured as either qualitative or quantitative and further cate
 \end{itemize}
 \end{enumerate}
 
-When an experiment has controls, call $X$ a \colorbox{pink}{factor} and its categories the \colorbox{pink}{factor levels}. Single-Factor Experiment has one factor with levels $\{a_1, a_2, a_3,...\}$. Two-Factor Experiment has Two Factors (Factor A and B) with their own levels. A \colorbox{pink}{treatment} is a combination of factor levels. 
+When an experiment has controls, call $X$ a {factor} and its categories the {factor levels}. Single-Factor Experiment has one factor with levels $\{a_1, a_2, a_3,...\}$. Two-Factor Experiment has Two Factors (Factor A and B) with their own levels. A {treatment} is a combination of factor levels. 
 \newpage
 \begin{eg}
 \normalfont
@@ -280,7 +302,7 @@ Example of Effects of Putting Sugar in Coffee
 \item Sample- \textcolor{red}{12 participants}
 \item A possible Statistical Inference- \textcolor{red}{Generalization on effects of drinking coffee with sugar}
 \end{itemize}
-\item Is the study observational or \colorbox{green}{experimental}? Justify. \textcolor{red}{The data were collected by an experiment, it has controls of giving specific amount of coffee and sugar. It is a within subjects design. Treatments are assigned.}
+\item Is the study observational or {experimental}? Justify. \textcolor{red}{The data were collected by an experiment, it has controls of giving specific amount of coffee and sugar. It is a within subjects design. Treatments are assigned.}
 \item What are the factors and levels? Describe the treatments and how many there are? \textcolor{red}{Factor: Type of drink. Factor Levels (3 levels/treatments): Coffee, Coffee with sugar, sugar only) (categorical)}
 \item Name a confounding variable that could be present in this study. \textcolor{red}{The order of treatments applied}
 \end{enumerate}
@@ -298,9 +320,9 @@ Suppose you wish to conduct an experiment to see if teaching style (lecturer, fa
 \end{eg}
 
 \subsection{Crossed vs. Nested Factors}
-When \colorbox{pink}{all combinations} of factors are possible, the experiment is said to be fully \colorbox{pink}{crossed}. Easier to analyze. 
+When {all combinations} of factors are possible, the experiment is said to be fully {crossed}. Easier to analyze. 
 
-When each level of one factor occurs with a unique set of levels of the other factor, the design is called \colorbox{pink}{nested}. Hierarchical Design. 
+When each level of one factor occurs with a unique set of levels of the other factor, the design is called {nested}. Hierarchical Design. 
 
 \begin{center}
 	\includegraphics[width=1\textwidth]{"Pic 3".JPG}
@@ -316,7 +338,7 @@ Ex: Teaching Styles:
 \item Time of day for lecture section, etc...
 \end{itemize}
 
-We use \colorbox{pink}{Control, Blocking, Randomization, Replication} to deal with nuisance variables. 
+We use {Control, Blocking, Randomization, Replication} to deal with nuisance variables. 
 
 \textbf{Control}: Keep the nuisance variable constant throughout all treatment conditions (no longer a variable)
 
@@ -333,7 +355,7 @@ Ex: Assign students to styles so each style has same age distribution.
 
 Ex: Teaching Styles: After blocking, randomly assign students to styles/sections. 
 
-\textbf{Replication}: Should not conduct the experiment with only one observation in each treatment. The resulting effect may be due to the experimental unit, and not the treatment. Cannot estimate variance within a specific treatment if it has only one observation. Use of replicates allows us to estimate \colorbox{pink}{experimental error}, which is used to determine if we have statistically significant results. 
+\textbf{Replication}: Should not conduct the experiment with only one observation in each treatment. The resulting effect may be due to the experimental unit, and not the treatment. Cannot estimate variance within a specific treatment if it has only one observation. Use of replicates allows us to estimate {experimental error}, which is used to determine if we have statistically significant results. 
 
 Replication can occur at two different levels: 
 \begin{itemize}
@@ -356,7 +378,7 @@ We use this when participants may be influenced once they know their treatment. 
 \textbf{Double blind}: Both subjects and researcher are unaware of treatment assignment. 
 
 \subsection{Balance}
-Assign the same number of experimental units to each treatment, call it \colorbox{pink}{Balanced Design}. Balanced and unbalanced designs dealt with differently (calculations, etc...). Balanced design can become unbalanced easily- missing data, destroyed measurements, etc...
+Assign the same number of experimental units to each treatment, call it {Balanced Design}. Balanced and unbalanced designs dealt with differently (calculations, etc...). Balanced design can become unbalanced easily- missing data, destroyed measurements, etc...
 
 \newpage
 
@@ -380,7 +402,7 @@ A Hypothesis Test is a formal statistical test that is performed to decide wheth
 \item Test Statistic: A statistic (function of the data) that involves the parameter value and has a known distribution under $H_0$.
 \item Distribution under $H_0$: Distribution of test statistic assuming that $H_0$ is true
 \item P-value: Probability of observing a test statistic as or more extreme (more contradictory to $H_0$ i.e. favorable to $H_a$) than already observed if the null hypothesis is true. Gives a measure of strength of evidence against $H_0$. Small P-value, test statistic value is unlikely if $H_0$ is true (contradiction). Large p-value, test statistic value is likely if $H_0$ is true (No contradiction)
-\item Conclusion: Reject $H_0$ (and favour $H_a$) or Fail to Reject $H_0$. This leads to a practical conclusion about the population(s)/parameter value(s). When $H_0$ is rejected, we say the test is \colorbox{pink}{statistically significant}, or there is a \colorbox{pink}{statistically significant difference}. 
+\item Conclusion: Reject $H_0$ (and favour $H_a$) or Fail to Reject $H_0$. This leads to a practical conclusion about the population(s)/parameter value(s). When $H_0$ is rejected, we say the test is {statistically significant}, or there is a {statistically significant difference}. 
 \end{enumerate}
 \subsection{Review: Two Sample T-Tests}
 \begin{defn}
@@ -409,7 +431,7 @@ Applicable when population variances can be assumed to be equal. I.e. Population
 \item The populations have equal standard deviations ($\sigma_1=\sigma_2$)
 \item Two samples are (approximately) Normal
 \end{enumerate}
-If we can assume that the variances are equal, we use the \colorbox{pink}{pooled estimate of the variance}: 
+If we can assume that the variances are equal, we use the {pooled estimate of the variance}: 
 $$s_p^2=\frac{\overbrace{(n_1-1)}^\text{df of $s_1^2$}s_1^2+\overbrace{(n_2-1)}^\text{df of $s_2^2$}s_2^2}{\underbrace{n_1+n_2-2}_\text{total df}}$$
 
 \textbf{Hypothesis for Pooled T-Tests}: 
@@ -446,7 +468,7 @@ $$t=\frac{(\bar{x}-\bar{y})-D_0}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim
 where
 $$\mu=\frac{(s_1^2/n_1+s_2^2/n_2)^2}{\frac{(s_1^2/n_1)^2}{n_1-1}+\frac{(s_2^2/n_2)^2}{n_2-1}}$$
 
-The degree of freedom is calculated by Satterthwaite Approximation. Note that $\mu$ may not be an integer, \colorbox{pink}{round down to the nearest integer}. 
+The degree of freedom is calculated by Satterthwaite Approximation. Note that $\mu$ may not be an integer, {round down to the nearest integer}. 
 \end{defn}
 \newpage
 \begin{eg}
@@ -578,7 +600,7 @@ E(Y_i)=
 \end{cases}
 $$
 
-Therefore, \colorbox{pink}{$\beta_0$ is the mean difference in pain for placebo group}, \colorbox{pink}{$\beta_1$ is the difference in the mean} \colorbox{pink}{difference of pain (response) between Auranofin and Placebo groups. }
+Therefore, {$\beta_0$ is the mean difference in pain for placebo group}, {$\beta_1$ is the difference in the mean} {difference of pain (response) between Auranofin and Placebo groups. }
 
 $\beta_1=0$: No difference
 
@@ -588,7 +610,7 @@ $\beta_1<0$: Mean in Auranofin Group $<$ Placebo Group
 \end{eg}
 
 \subsection{One-Way ANOVA with 2 levels}
-When there are 2 factor levels (comparing 2 means like in Arthritis Example), use t-test to test if $\beta_1=0$. Alternatively, use F-Test: Can be used to compare \colorbox{pink}{many} factor level means. T-Test using linear regression is \colorbox{pink}{equivalent} to F-Test using ANOVA when comparing 2 means. $t^2=F$. 
+When there are 2 factor levels (comparing 2 means like in Arthritis Example), use t-test to test if $\beta_1=0$. Alternatively, use F-Test: Can be used to compare {many} factor level means. T-Test using linear regression is {equivalent} to F-Test using ANOVA when comparing 2 means. $t^2=F$. 
 \newpage
 \begin{eg}
 \normalfont
@@ -628,7 +650,7 @@ If $X>1$, then more evidence we have a difference in group means (more significa
 \item $j$ denotes the group/level and $i$ denotes the position of the subject within that level/group ($j=1,...,a$; $i=1,...,n_j$)
 \item $y_{ij}$ denotes the $i$th observation from the $j$th group ($i$ is the index, $j$ is the group/level)
 \item $n_j$ is the number of subjects in the $j$th group
-\item \colorbox{pink}{$N=\sum_{j=1}^an_j$ is the total sample size}
+\item {$N=\sum_{j=1}^an_j$ is the total sample size}
 \item $\bar{Y}_T$ is the grand sample mean regardless of group
 \item $\bar{y}_j$ is the sample mean in the $j$th group
 \end{itemize}
@@ -637,7 +659,7 @@ If $X>1$, then more evidence we have a difference in group means (more significa
 \normalfont
 \textbf{Total Sum of Squares}
 
-SST measures the \colorbox{pink}{total sample variability} (total deviation from the grand mean):
+SST measures the {total sample variability} (total deviation from the grand mean):
 $$SST=\underbrace{\sum_{j=1}^a\sum_{i=1}^{n_j}}_{\text{All observations}}(y_{ij}-\bar{y}_T)^2$$
 \begin{itemize}
 \item $(N-1)$ df
@@ -983,7 +1005,7 @@ State the conclusions based on the contrasts that were tested.
 \subsection{Orthogonal Contrasts}
 \begin{defn}
 \normalfont
-This is useful for dividing sums of squares into different components. Any SS can be decomposed into as many independent sums as there are degrees of freedom. Two contrasts are said to be \colorbox{pink}{orthogonal} if: for $\psi_1$ and $\psi_2$ with coefficient vectors $\vec{c_1}$ and $\vec{c_2}$ respectively, 
+This is useful for dividing sums of squares into different components. Any SS can be decomposed into as many independent sums as there are degrees of freedom. Two contrasts are said to be {orthogonal} if: for $\psi_1$ and $\psi_2$ with coefficient vectors $\vec{c_1}$ and $\vec{c_2}$ respectively, 
 $$\sum_{j=1}^a\frac{c_{1j}c_{2j}}{n_j}=0$$
 Note that when sample sizes equal, then orthogonality simplifies to dot product of $0$:
 $$\vec{c_1}\cdot \vec{c_2}=\sum_{j=1}^ac_{1j}c_{2j}=0$$
@@ -1185,7 +1207,7 @@ To avoid redundancy, compare the largest and smallest means and if we failed to 
 \end{defn}
 Code: 
 \begin{lstlisting}
-> TukeyHSD(aov(model_name), factor=``factor_name")
+> TukeyHSD(aov(model_name), factor="factor_name")
 \end{lstlisting}
 `R' Gives CIs for all pairwise means. Reject $H_0$ for the given pair if the adjusted p-value $<\alpha$ or CI does not contain 0.
 \newpage

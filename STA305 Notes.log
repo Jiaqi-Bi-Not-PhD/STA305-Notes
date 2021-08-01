@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.16)  1 AUG 2021 15:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.16)  1 AUG 2021 17:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -49,6 +49,20 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 )
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2019/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/texlive/2019/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -89,10 +103,7 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-))
+)
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
@@ -155,6 +166,7 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -934,6 +946,15 @@ File: pgflibraryarrows.code.tex 2019/04/04 v3.1.2 (3.1.2)
 s/tikzlibrarychains.code.tex
 File: tikzlibrarychains.code.tex 2019/04/04 v3.1.2 (3.1.2)
 )
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/02/27 1.8b listings language file
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2019/02/27 1.8b listings language file
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2019/02/27 1.8b listings language file
+)
 \c@thm=\count305
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/csquotes/csquotes.sty
@@ -1067,25 +1088,25 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./STA305 Notes.aux)
 \openout1 = `"STA305 Notes.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
- ABD: EveryShipout initializing macros
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count322
@@ -1116,11 +1137,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+ABD: EveryShipout initializing macros
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 83.
+loading the todonotes package. on input line 105.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
@@ -1128,7 +1150,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count328
 \AtBeginShipoutBox=\box88
-Package hyperref Info: Link coloring OFF on input line 83.
+Package hyperref Info: Link coloring OFF on input line 105.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1137,40 +1159,40 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 83.
-LaTeX Info: Redefining \pageref on input line 83.
-LaTeX Info: Redefining \nameref on input line 83.
+LaTeX Info: Redefining \ref on input line 105.
+LaTeX Info: Redefining \pageref on input line 105.
+LaTeX Info: Redefining \nameref on input line 105.
 
 (./STA305 Notes.out) (./STA305 Notes.out)
 \@outlinefile=\write4
 \openout4 = `"STA305 Notes.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 130.
+LaTeX Font Info:    Try loading font information for U+msa on input line 152.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 130.
+LaTeX Font Info:    Try loading font information for U+msb on input line 152.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 130.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 152.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 1454) in paragraph at lines 141--141
+Underfull \hbox (badness 1454) in paragraph at lines 163--163
 []\OT1/cmr/m/n/10.95 This work is li-censed un-der a []Cre-ative Com-mons \  At
 tribution-
  []
 
-<doclicense-CC-by-nc-nd.pdf, id=222, 120.45pt x 42.1575pt>
+<doclicense-CC-by-nc-nd.pdf, id=230, 120.45pt x 42.1575pt>
 File: doclicense-CC-by-nc-nd.pdf Graphic file (type pdf)
 <use doclicense-CC-by-nc-nd.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc-nd.pdf  used on input line 141.
+Package pdftex.def Info: doclicense-CC-by-nc-nd.pdf  used on input line 163.
 (pdftex.def)             Requested size: 109.50027pt x 38.32605pt.
 [2 </usr/local/texlive/2019/texmf-dist/tex/latex/doclicense/images/doclicense-C
 C-by-nc-nd.pdf>] (./STA305 Notes.toc [3])
@@ -1178,225 +1200,240 @@ C-by-nc-nd.pdf>] (./STA305 Notes.toc [3])
 \openout5 = `"STA305 Notes.toc"'.
 
  [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 152.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 174.
 
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
  [5]
-<"Pic 1".JPG, id=294, 1446.40375pt x 1084.05pt>
+<"Pic 1".JPG, id=304, 1446.40375pt x 1084.05pt>
 File: "Pic 1".JPG Graphic file (type jpg)
 <use "Pic 1".JPG>
-Package pdftex.def Info: "Pic 1".JPG  used on input line 191.
+Package pdftex.def Info: "Pic 1".JPG  used on input line 213.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [6 <./Pic 1.JPG>] [7] [8]
-<"Pic 2".JPG, id=314, 1446.40375pt x 1084.05pt>
+<"Pic 2".JPG, id=324, 1446.40375pt x 1084.05pt>
 File: "Pic 2".JPG Graphic file (type jpg)
 <use "Pic 2".JPG>
-Package pdftex.def Info: "Pic 2".JPG  used on input line 272.
+Package pdftex.def Info: "Pic 2".JPG  used on input line 294.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [9 <./Pic 2.JPG>]
-<"Pic 3".JPG, id=323, 1256.695pt x 520.94624pt>
+<"Pic 3".JPG, id=333, 1256.695pt x 520.94624pt>
 File: "Pic 3".JPG Graphic file (type jpg)
 <use "Pic 3".JPG>
-Package pdftex.def Info: "Pic 3".JPG  used on input line 306.
+Package pdftex.def Info: "Pic 3".JPG  used on input line 328.
 (pdftex.def)             Requested size: 469.75499pt x 194.7264pt.
  [10 <./Pic 3.JPG>]
-<"Pic 4".JPG, id=333, 1415.2875pt x 317.185pt>
+<"Pic 4".JPG, id=343, 1415.2875pt x 317.185pt>
 File: "Pic 4".JPG Graphic file (type jpg)
 <use "Pic 4".JPG>
-Package pdftex.def Info: "Pic 4".JPG  used on input line 329.
+Package pdftex.def Info: "Pic 4".JPG  used on input line 351.
 (pdftex.def)             Requested size: 469.75499pt x 105.27634pt.
  [11 <./Pic 4.JPG>] [12]
 [13] [14] [15]
-<"pic 5".JPG, id=378, 1446.40375pt x 1084.05pt>
+<"pic 5".JPG, id=388, 1446.40375pt x 1084.05pt>
 File: "pic 5".JPG Graphic file (type jpg)
 <use "pic 5".JPG>
-Package pdftex.def Info: "pic 5".JPG  used on input line 457.
+Package pdftex.def Info: "pic 5".JPG  used on input line 479.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [16 <./pic 5.JPG>]
-<"pic 6".JPG, id=384, 1446.40375pt x 1084.05pt>
+<"pic 6".JPG, id=394, 1446.40375pt x 1084.05pt>
 File: "pic 6".JPG Graphic file (type jpg)
 <use "pic 6".JPG>
-Package pdftex.def Info: "pic 6".JPG  used on input line 467.
+Package pdftex.def Info: "pic 6".JPG  used on input line 489.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
-<"pic 7".JPG, id=385, 1446.40375pt x 1084.05pt>
+<"pic 7".JPG, id=395, 1446.40375pt x 1084.05pt>
 File: "pic 7".JPG Graphic file (type jpg)
 <use "pic 7".JPG>
-Package pdftex.def Info: "pic 7".JPG  used on input line 470.
+Package pdftex.def Info: "pic 7".JPG  used on input line 492.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [17 <./pic 6.JPG>]
-<"pic 8".JPG, id=390, 1446.40375pt x 1084.05pt>
+<"pic 8".JPG, id=400, 1446.40375pt x 1084.05pt>
 File: "pic 8".JPG Graphic file (type jpg)
 <use "pic 8".JPG>
-Package pdftex.def Info: "pic 8".JPG  used on input line 473.
+Package pdftex.def Info: "pic 8".JPG  used on input line 495.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [18 <./pic 7.JPG>]
 [19 <./pic 8.JPG>] [20] [21]
-<"pic 9".JPG, id=414, 1446.40375pt x 1084.05pt>
+<"pic 9".JPG, id=424, 1446.40375pt x 1084.05pt>
 File: "pic 9".JPG Graphic file (type jpg)
 <use "pic 9".JPG>
-Package pdftex.def Info: "pic 9".JPG  used on input line 598.
+Package pdftex.def Info: "pic 9".JPG  used on input line 620.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
-<"pic 10".JPG, id=415, 763.85374pt x 370.38374pt>
+<"pic 10".JPG, id=425, 763.85374pt x 370.38374pt>
 File: "pic 10".JPG Graphic file (type jpg)
 <use "pic 10".JPG>
-Package pdftex.def Info: "pic 10".JPG  used on input line 608.
+Package pdftex.def Info: "pic 10".JPG  used on input line 630.
 (pdftex.def)             Requested size: 140.92792pt x 68.3334pt.
  [22 <./pic 9.JPG> <./pic 10.JPG>] [23]
-Overfull \hbox (1.4358pt too wide) in paragraph at lines 677--677
+Overfull \hbox (1.4358pt too wide) in paragraph at lines 699--699
 []|\OT1/cmr/m/n/10.95 Group/Regression| 
  []
 
 [24]
-<"pic 11".JPG, id=432, 1446.40375pt x 1084.05pt>
+<"pic 11".JPG, id=442, 1446.40375pt x 1084.05pt>
 File: "pic 11".JPG Graphic file (type jpg)
 <use "pic 11".JPG>
-Package pdftex.def Info: "pic 11".JPG  used on input line 707.
+Package pdftex.def Info: "pic 11".JPG  used on input line 729.
 (pdftex.def)             Requested size: 469.75499pt x 352.06396pt.
  [25 <./pic 11.JPG>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 715.
+(hyperref)                removing `math shift' on input line 737.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 715.
+(hyperref)                removing `math shift' on input line 737.
 
 [26] [27]
-<"pic 12".JPG, id=449, 1446.40375pt x 1084.05pt>
+<"pic 12".JPG, id=459, 1446.40375pt x 1084.05pt>
 File: "pic 12".JPG Graphic file (type jpg)
 <use "pic 12".JPG>
-Package pdftex.def Info: "pic 12".JPG  used on input line 769.
+Package pdftex.def Info: "pic 12".JPG  used on input line 791.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [28 <./pic 12.JPG>]
-<"pic 13".JPG, id=455, 1446.40375pt x 1084.05pt>
+<"pic 13".JPG, id=465, 1446.40375pt x 1084.05pt>
 File: "pic 13".JPG Graphic file (type jpg)
 <use "pic 13".JPG>
-Package pdftex.def Info: "pic 13".JPG  used on input line 776.
+Package pdftex.def Info: "pic 13".JPG  used on input line 798.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 14".JPG, id=456, 1446.40375pt x 1084.05pt>
+<"pic 14".JPG, id=466, 1446.40375pt x 1084.05pt>
 File: "pic 14".JPG Graphic file (type jpg)
 <use "pic 14".JPG>
-Package pdftex.def Info: "pic 14".JPG  used on input line 780.
+Package pdftex.def Info: "pic 14".JPG  used on input line 802.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 15".JPG, id=457, 1446.40375pt x 1084.05pt>
+<"pic 15".JPG, id=467, 1446.40375pt x 1084.05pt>
 File: "pic 15".JPG Graphic file (type jpg)
 <use "pic 15".JPG>
-Package pdftex.def Info: "pic 15".JPG  used on input line 784.
+Package pdftex.def Info: "pic 15".JPG  used on input line 806.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [29 <./pic 13.JPG> <./pic 14.JPG>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 801.
+(hyperref)                removing `math shift' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 801.
+(hyperref)                removing `subscript' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 801.
+(hyperref)                removing `math shift' on input line 823.
 
 [30 <./pic 15.JPG>]
-<"pic 16".JPG, id=466, 1446.40375pt x 1084.05pt>
+<"pic 16".JPG, id=476, 1446.40375pt x 1084.05pt>
 File: "pic 16".JPG Graphic file (type jpg)
 <use "pic 16".JPG>
-Package pdftex.def Info: "pic 16".JPG  used on input line 816.
+Package pdftex.def Info: "pic 16".JPG  used on input line 838.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [31 <./pic 16.JPG>]
-Overfull \hbox (2.07043pt too wide) in paragraph at lines 856--856
+Overfull \hbox (2.07043pt too wide) in paragraph at lines 878--878
 []|\OT1/cmr/m/n/10.95 Group| 
  []
 
 [32] [33] [34]
-<"pic 17".JPG, id=491, 1446.40375pt x 1084.05pt>
+<"pic 17".JPG, id=501, 1446.40375pt x 1084.05pt>
 File: "pic 17".JPG Graphic file (type jpg)
 <use "pic 17".JPG>
-Package pdftex.def Info: "pic 17".JPG  used on input line 957.
+Package pdftex.def Info: "pic 17".JPG  used on input line 979.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 18".JPG, id=492, 1446.40375pt x 1084.05pt>
+<"pic 18".JPG, id=502, 1446.40375pt x 1084.05pt>
 File: "pic 18".JPG Graphic file (type jpg)
 <use "pic 18".JPG>
-Package pdftex.def Info: "pic 18".JPG  used on input line 961.
+Package pdftex.def Info: "pic 18".JPG  used on input line 983.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 19".JPG, id=493, 1446.40375pt x 1084.05pt>
+<"pic 19".JPG, id=503, 1446.40375pt x 1084.05pt>
 File: "pic 19".JPG Graphic file (type jpg)
 <use "pic 19".JPG>
-Package pdftex.def Info: "pic 19".JPG  used on input line 965.
+Package pdftex.def Info: "pic 19".JPG  used on input line 987.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [35 <./pic 17.JPG> <./pic 18.JPG>] [36 <./pic 19.JPG>]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 990.
+(amsmath)                 on input line 1012.
 
 [37] [38] [39] [40]
-<"pic 20".JPG, id=530, 1446.40375pt x 1084.05pt>
+<"pic 20".JPG, id=540, 1446.40375pt x 1084.05pt>
 File: "pic 20".JPG Graphic file (type jpg)
 <use "pic 20".JPG>
-Package pdftex.def Info: "pic 20".JPG  used on input line 1142.
+Package pdftex.def Info: "pic 20".JPG  used on input line 1164.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 21".JPG, id=531, 1446.40375pt x 1084.05pt>
+<"pic 21".JPG, id=541, 1446.40375pt x 1084.05pt>
 File: "pic 21".JPG Graphic file (type jpg)
 <use "pic 21".JPG>
-Package pdftex.def Info: "pic 21".JPG  used on input line 1146.
+Package pdftex.def Info: "pic 21".JPG  used on input line 1168.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [41 <./pic 20.JPG>] [42 <./pic 21.JPG>]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 1188
-.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1188.
+Package xcolor Warning: Incompatible color definition on input line 1210.
 
- [43]
-<"pic 22".JPG, id=551, 1446.40375pt x 1084.05pt>
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1210.
+
+[43]
+<"pic 22".JPG, id=562, 1446.40375pt x 1084.05pt>
 File: "pic 22".JPG Graphic file (type jpg)
 <use "pic 22".JPG>
-Package pdftex.def Info: "pic 22".JPG  used on input line 1197.
+Package pdftex.def Info: "pic 22".JPG  used on input line 1219.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
-<"pic 23".JPG, id=552, 1446.40375pt x 1084.05pt>
+<"pic 23".JPG, id=563, 1446.40375pt x 1084.05pt>
 File: "pic 23".JPG Graphic file (type jpg)
 <use "pic 23".JPG>
-Package pdftex.def Info: "pic 23".JPG  used on input line 1201.
+Package pdftex.def Info: "pic 23".JPG  used on input line 1223.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [44 <./pic 22.JPG> <./pic 23.JPG>] [45]
-<"pic 24".JPG, id=565, 1446.40375pt x 1084.05pt>
+<"pic 24".JPG, id=576, 1446.40375pt x 1084.05pt>
 File: "pic 24".JPG Graphic file (type jpg)
 <use "pic 24".JPG>
-Package pdftex.def Info: "pic 24".JPG  used on input line 1241.
+Package pdftex.def Info: "pic 24".JPG  used on input line 1263.
 (pdftex.def)             Requested size: 375.80542pt x 281.64786pt.
  [46 <./pic 24.JPG>] [47]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1272.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1272.
- (./STA305 Notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1272.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1294.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1294.
 
+(./STA305 Notes.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1294.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1294.
 
-
-Package rerunfilecheck Warning: File `"STA305 Notes".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"STA305 Notes".out':
-(rerunfilecheck)             Before: 596B9376E11DF0216C55866AE18E2379;3519
-(rerunfilecheck)             After:  4ECE6D9F7B2DDFD6B2FF9912C07D9987;3688.
+Package rerunfilecheck Info: File `"STA305 Notes".out' has not changed.
+(rerunfilecheck)             Checksum: 4ECE6D9F7B2DDFD6B2FF9912C07D9987;3688.
  ) 
 Here is how much of TeX's memory you used:
- 35391 strings out of 492616
- 694647 string characters out of 6129481
- 769987 words of memory out of 5000000
- 38589 multiletter control sequences out of 15000+600000
- 545387 words of font info for 78 fonts, out of 8000000 for 9000
+ 36245 strings out of 492616
+ 704658 string characters out of 6129481
+ 866040 words of memory out of 5000000
+ 39427 multiletter control sequences out of 15000+600000
+ 545555 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,92p,1129b,1229s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,14n,92p,1129b,1785s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1412,11 +1449,12 @@ cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
 xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "STA305 Notes.pdf" (47 pages, 2339709 bytes).
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "STA305 Notes.pdf" (47 pages, 2344425 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 555 compressed objects within 6 object streams
+ 679 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
  167 named destinations out of 1000 (max. 500000)
- 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 610 words of extra memory for PDF output out of 10000 (max. 10000000)
 
